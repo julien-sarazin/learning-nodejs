@@ -1,13 +1,35 @@
 {
+  "name": "learning-nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "directories": {
+    "test": "test"
+  },
   "dependencies": {
     "body-parser": "^1.15.0",
+    "expect.js": "^0.3.1",
     "chai": "^3.5.0",
     "chai-http": "^2.0.1",
-    "expect.js": "^0.3.1",
     "express": "^4.13.4",
-    "jsonwebtoken": "^5.7.0",
-    "mongoose": "^4.4.11",
     "sha1": "^1.1.1",
+    "mongoose": "^4.4.13",
+    "jsonwebtoken": "^5.7.0",
     "supertest": "^1.2.0"
-  }
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "mocha",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/julien-sarazin/learning-nodejs.git"
+  },
+  "author": "Julien Sarazin <julien.sarazin@me.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/julien-sarazin/learning-nodejs/issues"
+  },
+  "homepage": "https://github.com/julien-sarazin/learning-nodejs#readme"
 }
