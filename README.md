@@ -1,16 +1,13 @@
-## learning-nodejs
-A repository based on courses given to students learning nodejs
-
 ## Evaluation
 Le TP compte 20 tests, 1 points par tests.
 
 > ### Dépendances :
-- mongodb
-- node/npm :
+- mongodb: `brew install mongodb`
+- node/npm : `nvm use 4.4.5`
 - mocha : `npm install -g mocha`
 
-Pour que votre projet soit fonctionnel, il faut installer ces dépendances.
-Vous ne devez pas supprimer ces dépendances, vous pouvez cependant rajouter celles que vous souhaitez.
+Pour que votre projet soit fonctionnel, il faut installer ces dépendences.
+Vous ne devez pas supprimer ces dépendences, vous pouvez cependant rajouter celles que vous souhaitez.
 > ###  Installation :
  - `npm i`
 
