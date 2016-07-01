@@ -1,0 +1,7 @@
+{
+    "port": 3000,
+    "TOKEN_SECRET": "s3cr3t_t0k3n",
+    "db": {
+        "mongo": "mongodb://localhost:27017/eval-event-db"
+    }
+}

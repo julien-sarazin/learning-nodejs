@@ -1,0 +1,2 @@
+{ "_id" : { "$oid" : "571a05f29b6c609faf3b4255" }, "email" : "foo@bar.com", "password" : "5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8", "participations" : [ "5719f97cb571f82699e7297d" ], "events" : [ "5719f97cb571f82699e7297d" ], "__v" : 0 }
+{ "_id" : { "$oid" : "57061a9011ed287c549492b0" }, "email" : "test@email.com", "password" : "5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8", "participations" : [ "5719f959b571f82699e7297c", "5719f8feb571f82699e7297b", "571a13ae9b6c609faf3b4259" ], "events" : [ "5719f959b571f82699e7297c", "5719f8feb571f82699e7297b" ], "__v" : 0 }

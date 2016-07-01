@@ -1,0 +1,16 @@
+{
+    "USER": {
+        "EMAIL": "user@email.com",
+        "PASSWORD": "password",
+        "KNOWN_ID": "57061a9011ed287c549492b0",
+        "UNKOWN_ID": "57061a9011ed287c549492b9"
+    },
+    "ACCESS_TOKEN": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhY2Nlc3NUb2tlbiI6IjU3MWEwNmU4ODYwMTg4YWQ5ZmQ1NmE2MCIsImlhdCI6MTQ2MTMyMzQ5Nn0.H5OnRrl16tcjNb9gq4e2dYsyPivtb227ufn7gAoLJLc",
+    "EVENTS": {
+        "AB": "5719f959b571f82699e7297c",
+        "XY": "5719f8feb571f82699e7297b",
+        "FOOBAR": "5719f97cb571f82699e7297d",
+        "PARTICIPATED": "571a13ae9b6c609faf3b4259",
+        "UNKNOWN": "57061a9011ed287c549492bd"
+    }
+}
