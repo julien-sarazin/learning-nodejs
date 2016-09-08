@@ -1,6 +1,6 @@
-module.exports = function(server) {
-    var Schema = server.models.mongoose.Schema;
-    var Token = Schema({
+module.exports = (server) => {
+    const Schema = server.models.mongoose.Schema;
+    let Token = Schema({
         userId: {
             type: Schema.Types.ObjectId,
             ref: 'User',

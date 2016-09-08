@@ -1,4 +1,4 @@
-module.exports = function(server) {
+module.exports = (server) => {
     return {
         create: require('./create')(server),
         list: require('./list')(server),
@@ -7,5 +7,5 @@ module.exports = function(server) {
         update: require('./update')(server),
         join: require('./join')(server),
         leave: require('./leave')(server)
-    }
+    };
 };

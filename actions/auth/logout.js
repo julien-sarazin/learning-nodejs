@@ -1,11 +1,11 @@
-module.exports = function(server) {
-    var Token = server.models.AuthToken;
+module.exports = (server) => {
+    const Token = server.models.AuthToken;
 
-    return function(req, res, next) {
-        Token.remove({userId: req.auth.userId}, function(err, data) {
+    return (req, res, next) => {
+        Token.remove({userId: req.auth.userId}, (err, data) => {
             if (err)
                 return res.status(500).send(err);
             res.send('logout succeeded');
         });
-    }
-}
+    };
+};

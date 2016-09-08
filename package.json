@@ -1,13 +1,42 @@
 {
-  "dependencies": {
-    "body-parser": "^1.15.0",
-    "chai": "^3.5.0",
-    "chai-http": "^2.0.1",
-    "expect.js": "^0.3.1",
-    "express": "^4.13.4",
-    "jsonwebtoken": "^5.7.0",
-    "mongoose": "^4.4.11",
-    "sha1": "^1.1.1",
-    "supertest": "^1.2.0"
-  }
+    "name": "learning-nodejs",
+    "version": "0.0.1",
+    "description": "teach students how to use nodejs to develop basic REST API",
+    "main": "server.js",
+    "directories": {
+        "test": "test"
+    },
+    "dependencies": {
+        "body-parser": "^1.15.0",
+        "chai": "^3.5.0",
+        "chai-http": "^2.0.1",
+        "expect.js": "^0.3.1",
+        "express": "^4.13.4",
+        "jsonwebtoken": "^5.7.0",
+        "mongoose": "^4.4.11",
+        "sha1": "^1.1.1",
+        "supertest": "^1.2.0"
+    },
+    "devDependencies": {},
+    "scripts": {
+        "test": "mocha -R",
+        "start": "node server.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/julien-sarazin/learning-nodejs.git"
+    },
+    "keywords": [
+        "nodejs",
+        "server",
+        "api",
+        "REST",
+        "es6"
+    ],
+    "author": "Julien Sarazin <julien.sarazin@me.com>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/julien-sarazin/learning-nodejs/issues"
+    },
+    "homepage": "https://github.com/julien-sarazin/learning-nodejs#readme"
 }

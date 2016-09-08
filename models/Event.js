@@ -1,6 +1,6 @@
-module.exports = function(server) {
-    var Schema = server.models.mongoose.Schema;
-    var EventSchema = Schema({
+module.exports = (server) => {
+    const Schema = server.models.mongoose.Schema;
+    let EventSchema = Schema({
         title: {
             type: String,
             required: true

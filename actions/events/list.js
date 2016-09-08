@@ -1,10 +1,10 @@
-module.exports = function(server) {
-    var Event = server.models.Event;
+module.exports = (server) => {
+    const Event = server.models.Event;
 
-    return function(req, res, next) {
+    return (req, res, next) => {
         var query = Event.find();
 
-        query.exec(function(err, data) {
+        query.exec((err, data) => {
             if (err)
                 return res.status(500).send(err);
 

@@ -1,9 +1,7 @@
-var router = require('express').Router();
-var bodyparser = require('body-parser').json();
+const router = require('express').Router();
 
-module.exports = function(server) {
+let eventRouter = (server) => {
     router
-
         .get('/',
             server.actions.events.list
         )
@@ -28,7 +26,7 @@ module.exports = function(server) {
             server.middlewares.ensureAuthenticated,
             server.actions.events.leave
         )
-        
+
         .put('/:id',
             server.middlewares.ensureAuthenticated,
             server.middlewares.bodyparser,
@@ -40,4 +38,6 @@ module.exports = function(server) {
         );
 
     return router;
-};
+}
+
+module.exports = eventRouter;

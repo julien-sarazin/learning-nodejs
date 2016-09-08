@@ -1,12 +1,11 @@
-module.exports = function(server) {
-    var Event = server.models.Event;
-    var User = server.models.User;
+module.exports = (server) => {
+    const Event = server.models.Event;
 
-    return function(req, res, next) {
-        var userId = req.auth.userId;
-        var user = req.auth.user;
+    return (req, res, next) => {
+        let userId = req.auth.userId;
+        let user = req.auth.user;
 
-        Event.findById(req.params.id, function(err, event) {
+        Event.findById(req.params.id, (err, event) => {
             if (err)
                 return res.status(500).send(err);
 
@@ -21,11 +20,11 @@ module.exports = function(server) {
             user.participations.push(eventId);
             event.participants.push(userId);
             
-            user.save(function(err, data) {
+            user.save((err, data) => {
                 if (err)
                     return res.status(500).send(err);
 
-                event.save(function(err, data) {
+                event.save((err, data) => {
                     if (err)
                         return res.status(500).send(err);
                     
@@ -33,5 +32,5 @@ module.exports = function(server) {
                 });
             });
         });
-    }
+    };
 };

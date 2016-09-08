@@ -1,15 +1,25 @@
-var sha1 = require('sha1');
+const sha1 = require('sha1');
 
-module.exports = function(server) {
-    var User = server.models.User;
+module.exports = (server) => {
+    const User = server.models.User;
 
-    return function(req, res, next) {
+    return (req, res, next) => {
         req.body.password = sha1(req.body.password);
-        var user = new User(req.body);
-        user.save(function(err, data) {
-            if (err)
-                return res.status(500).send(err);
-            res.send(data);
-        })
-    }
+        User.findOne()
+            .where('email', req.body.email)
+            .exec((err, data) => {
+                if (err)
+                    return res.status(500).send(err);
+
+                if (data)
+                    return res.status(401).send('email.already.exists')
+
+                let user = new User(req.body);
+                user.save((err, data) => {
+                    if (err)
+                        return res.status(500).send(err);
+                    res.send(data);
+                });
+            });
+    };
 };

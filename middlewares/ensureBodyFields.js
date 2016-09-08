@@ -1,11 +1,11 @@
-module.exports = function(server) {
-    return function(fields) {
+module.exports = (server) => {
+    return (fields) => {
         fields = (fields instanceof Array) ? fields : [fields];
 
-        return function(req, res, next) {
+        return (req, res, next) => {
             var missings = [];
 
-            fields.forEach(function(field) {
+            fields.forEach((field) => {
                 if (!req.body[field])
                     missings.push(field);
             });
@@ -17,5 +17,5 @@ module.exports = function(server) {
 
             next();
         }
-    }
-}
+    };
+};

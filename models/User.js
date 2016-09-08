@@ -1,6 +1,6 @@
-module.exports = function(server) {
-    var Schema = server.models.mongoose.Schema;
-    var UserSchema = Schema({
+module.exports = (server) => {
+    const Schema = server.models.mongoose.Schema;
+    let UserSchema = Schema({
         email: {
             type: String,
             required: true,
@@ -22,4 +22,4 @@ module.exports = function(server) {
     });
 
     return server.models.mongoose.model('User', UserSchema);
-}
+};

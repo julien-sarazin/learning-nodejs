@@ -1,6 +1,6 @@
-var router = require('express').Router();
+const router = require('express').Router();
 
-module.exports = function(server) {
+module.exports = (server) => {
     router
         .get('/',
             server.actions.users.list

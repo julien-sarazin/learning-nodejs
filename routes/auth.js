@@ -1,6 +1,6 @@
-var router = require('express').Router();
+const router = require('express').Router();
 
-module.exports = function(server) {
+let authenticationRouter = (server) => {
     router
         .post('/login',
             server.middlewares.bodyparser,
@@ -14,4 +14,6 @@ module.exports = function(server) {
         );
 
     return router;
-};
+}
+
+module.exports = authenticationRouter;

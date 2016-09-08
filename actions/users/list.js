@@ -1,12 +1,12 @@
-module.exports = function(server) {
-    var User = server.models.User;
+module.exports = (server) => {
+    let User = server.models.User;
 
-    return function(req, res, next) {
-        User.find(function(err, data) {
+    return (req, res, next) => {
+        User.find((err, data) => {
             if (err)
                 return res.status(500).send(err);
 
             res.send(data);
         });
-    }
+    };
 };

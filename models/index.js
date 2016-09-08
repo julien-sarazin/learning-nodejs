@@ -1,6 +1,6 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
-module.exports = function(server) {
+module.exports = (server) => {
     server.models = server.models || {};
     server.models.mongoose = mongoose.connect(server.settings.db.mongo);
 

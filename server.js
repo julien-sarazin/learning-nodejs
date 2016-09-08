@@ -1,5 +1,5 @@
-var express = require('express');
-var server;
+const express = require('express');
+let server;
 module.exports = server = express();
 
 require('./settings')(server);    // Load settings
