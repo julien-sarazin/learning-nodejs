@@ -20,7 +20,8 @@
     "devDependencies": {},
     "scripts": {
         "test": "mocha -R",
-        "start": "node server.js"
+        "start": "node server.js",
+        "generate-doc":  "apidoc-swagger -i ./routes -o explorer/"
     },
     "repository": {
         "type": "git",
@@ -38,5 +39,11 @@
     "bugs": {
         "url": "https://github.com/julien-sarazin/learning-nodejs/issues"
     },
-    "homepage": "https://github.com/julien-sarazin/learning-nodejs#readme"
+    "homepage": "https://github.com/julien-sarazin/learning-nodejs#readme",
+    "apidoc": {
+        "description": "The Event API is a simple server-side API to illustrate the use of Digipolitan SDKs.",
+        "version": "1.0.0",
+        "title": "DigiTuts Event API",
+        "url": "localhost.com:3000/api"
+    }
 }

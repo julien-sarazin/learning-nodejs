@@ -1,0 +1,235 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "DigiTuts Event API",
+        "version": "1.0.0",
+        "description": "The Event API is a simple server-side API to illustrate the use of Digipolitan SDKs."
+    },
+    "paths": {
+        "/events/{id}": {
+            "delete": {
+                "tags": [
+                    "Events"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": []
+            },
+            "get": {
+                "tags": [
+                    "Events"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": []
+            },
+            "put": {
+                "tags": [
+                    "Events"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "$ref": "#/definitions/null"
+                        }
+                    }
+                ]
+            }
+        },
+        "/events/": {
+            "get": {
+                "tags": [
+                    "Events"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": []
+            },
+            "post": {
+                "tags": [
+                    "Events"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/PostEvents"
+                        }
+                    }
+                ]
+            }
+        },
+        "/events/{id}/join": {
+            "post": {
+                "tags": [
+                    "Events"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "$ref": "#/definitions/null"
+                        }
+                    }
+                ]
+            }
+        },
+        "/events/{id}/leave": {
+            "post": {
+                "tags": [
+                    "Events"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "$ref": "#/definitions/null"
+                        }
+                    }
+                ]
+            }
+        },
+        "/users": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": []
+            }
+        },
+        "/users/{id}": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": []
+            },
+            "put": {
+                "tags": [
+                    "Users"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "$ref": "#/definitions/null"
+                        }
+                    }
+                ]
+            }
+        },
+        "/users/": {
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/PostUsers"
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "definitions": {
+        "PostEvents": {
+            "properties": {
+                "title": {
+                    "type": "string",
+                    "description": "&quot;Mandatory title&quot; "
+                }
+            },
+            "required": [
+                "title"
+            ]
+        },
+        "PostUsers": {
+            "properties": {
+                "email": {
+                    "type": "string",
+                    "description": "&quot;Mandatory email&quot; "
+                },
+                "password": {
+                    "type": "string",
+                    "description": "&quot;Mandatory password&quot; "
+                }
+            },
+            "required": [
+                "email",
+                "password"
+            ]
+        }
+    }
+}
