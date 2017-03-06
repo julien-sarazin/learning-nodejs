@@ -257,8 +257,32 @@ foo.hobby = 'bar'
 - Règles d'utilisation de `let` vs `const` :  
 La règle est simple, lorsque vous utilisez une variable classique qui a vocation à être altérée pendant sa durée de vie, utilisez `let`. Si au contraire, la référence défini ne doit jamais être modifiée, utilisez `const`.
 
+### 4 - Copie vs. Reference
+Petit rappel important, lorsque vous échanger des valeurs entre variables, tout type primitif (`string`, `number`, `boolean`, `null`, `undefined`) sera passé par copie, tout type complexe (`array`, `object`, `function`) sera passé par référence.
 
-### 4 - functions
+Exemple avec des primitives
+
+```javascript
+var foo = 1;
+var bar = foo;
+
+bar = 9;
+
+console.log(foo, bar); // => 1, 9
+```
+
+Exemple avec des types complexes
+
+```javascript
+var foo = [1, 2];
+var bar = foo;
+
+bar[0] = 9;
+
+console.log(foo[0], bar[0]); // => 9, 9
+``` 
+
+### 5 - Fonctions
 
 Le mot clé `function` en javascript à été pendant des années l'instruction la plus utilisée, elle permettait de finir un block d'instruction invocable anonymement, ou nommé, référencé par une variable, et même de définir des classes.
 
@@ -321,7 +345,105 @@ let user = User();
 
 
 
-### 4 - Arrow functions
+### 6 - Arrow functions
 
 Les function de type "Arrow function" offre une syntax plus symbolique et donc plus efficace.
+
+Exemple :
+
+```javascript
+var foo = (bar) => {
+    console.log("Hello " + bar);
+}
+```
+
+Premiere différence, la "arrow function" ne peut pas être nommée
+ 
+```javascript
+foo(bar) => { // invalid declaration
+    console.log("Hello " + bar);
+}
+```
+
+Seconde différence, la "arrow function" ne possède pas de prototype
+
+```javascript
+var Toto = () => {}
+console.log(Toto.prototype);
+```
+
+Enfin, la plus importante car cela à été une des raisons principales de la création des "arrow function", **la capture de this**.
+
+
+
+Ce qui nous amène à notre dernier point avant de commencer à jouer avec NodeJS.
+
+
+
+### 7 - Who is this?
+L'utilisation de `this` dans les paradigmes de programmation objet est omniprésente. On utilise généralement this pour référencer l'instance en cours qui est lu ou altérée.
+
+
+```javascript
+function User(firstname, lastname) {
+    this.firstname = firstname;
+    this.lastname = lastname;
+}
+
+User.prototype = {
+    firstname: "unkown",
+    lastname: "unkown"
+};
+
+User.prototype.sayHello = function(name) {
+    console.log(`Hello ${name}, i'm ${this.firstname}`)
+}
+
+User.prototype.sayHelloBis = (name) => {
+    console.log(`Hello ${name}, i'm ${this.firstname}`)
+}
+
+var user = new User("Foo", "Bar");
+
+user.sayHello("Baz"); // Hello Baz, i'm Foo
+user.sayHelloBis("Baz"); // Hello Baz, i'm undefined
+```
+
+Dans l'exemple ci-dessus on se rend compte que l'utilisation de la "arrow function" n'est peut-être pas très apropriée.
+
+Prenons un nouvel exemple où nous mettrons en avant l'avantage de la "arrow function".
+
+```javascript
+function User() {
+    this.age = 0;
+
+    setInterval(function() {
+        this.age ++;
+        console.log(`I am older now! ${this.age} years old!`);
+    }, 1000)
+}
+
+var user = new User();
+
+function ArrowUser() {
+    this.age = 0;
+
+    setInterval(() => {
+        this.age ++;
+        console.log(`I am older now! ${this.age} years old!`);
+    }, 1000)
+}
+
+var user = new ArrowUser();
+```
+
+Ici nous constatons que this à bien été capturé par la arrow function lors de sa définition. Pour résumer
+
+- Arrow Function:   `This` est défini lors de l'évaluation de la fonction.
+- Classic Function: `This` est défini lors de l'execution de la fonction.
+
+
+
+
+
 
