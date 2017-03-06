@@ -65,18 +65,11 @@ function merge(array1, array2) {
 console.log(merge([1, 13, 234, 12, 123], [77, 4, 55, 1, 3243, 4]));
 
 function areAnagram(string1, string2) {
-	return false
+	return string1.split("").sort().join() == string2.split("").sort().join()
 }// return boolean if the too string are anagrams
 
 console.log(areAnagram("julien", "neiluj"));
 console.log(areAnagram("abc", "rty"));
 console.log(areAnagram("bonjour", "roubonj"));
-
-
-
-
-
-
-
 
 
