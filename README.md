@@ -16,21 +16,25 @@ function f() {
 
     return message;
 }
+
+console.log(f());
 ```
 
 Et nous pouvons également passez ces variables au travers d'autres fonctions :
 
 ```
-function f() {
-    var a = 10;
+function f(x) {
+    var a = x || 0;
     return function g() {
-        var b = a + 1;
+        var b = x + 1;
         return b;
     }
 }
 
-var g = f();
-g(); // returns '11'
+var g = f(10);
+console.log(g()); // returns '11'
+g = f(2);
+console.log(g()); // returns '3'
 ```
 
 Dans l'exemple ci-dessus la function `g` a **capturé** la variable déclaré dans `f`. 
@@ -70,21 +74,22 @@ f(false); // returns 'undefined'
 
 ```
 
-Certains lecteurs pourraient faire une double prise à cet exemple. La variable x a été déclarée dans le bloc if, et pourtant nous avons pu y accéder depuis l'extérieur de ce bloc. C'est parce que les déclarations var sont accessibles n'importe où dans leur fonction contenant, module, espace de noms ou étendue globale - tout ce que nous allons passer plus tard - indépendamment du bloc contenant.
+La variable x a été déclarée dans le bloc if, et pourtant nous avons pu y accéder depuis l'extérieur de ce bloc. C'est parce que les déclarations var sont accessibles n'importe où dans leur fonction contenant, module, espace de noms ou étendue globale - tout ce que nous allons passer plus tard - indépendamment du bloc contenant.
 
 Le soucis avec ce genre de flexibilité, c'est qu'une erreur est vite arrivée : 
 
 ``` javascript
-function sumMatrix(matrix) {
-    var sum = 0;
+function total(matrix) {
+    var total = 0;
     for (var i = 0; i < matrix.length; i++) {
         var currentRow = matrix[i];
         for (var i = 0; i < currentRow.length; i++) {
-            sum += currentRow[i];
+            var v = currentRow[i];
+            total += v
         }
     }
 
-    return sum;
+    return total;
 }
 ``` 
 
@@ -142,7 +147,7 @@ Trouvez une solution en modifiant le code suivant pour que sont résultat match 
 
 ```javascript
 for (var i = 0; i < 10; i++) {
-    setTimeout(function() { console.log(i); }, 100 * i);
+    setTimeout((function(i) { return function() { console.log(i); } }(i)), 100 * i);
 }
 ```
 
@@ -186,7 +191,6 @@ Règle de capture.
 
 ``` javascript
 function foo() {
-    // okay to capture 'a'
     return a;
 }
 
@@ -352,7 +356,7 @@ Les function de type "Arrow function" offre une syntax plus symbolique et donc p
 Exemple :
 
 ```javascript
-var foo = (bar) => {
+const foo = (bar) => {
     console.log("Hello " + bar);
 }
 ```
