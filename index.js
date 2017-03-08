@@ -7,5 +7,5 @@ require('./models')(api);         // Load models;
 require('./actions')(api);        // Load actions;
 require('./routes')(api);         // Load routes;
 
-console.log(`Api listening on port ${api.settings.port}`)
+console.log(`Api ready! \nListening on port ${api.settings.port}`)
 api.listen(api.settings.port);
