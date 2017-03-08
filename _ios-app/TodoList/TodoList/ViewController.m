@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 
-static NSString * kUSER_API = @"http://10.33.2.178:3000/users";
+static NSString * kUSER_API = @"http://127.0.0.1:3000/users";
 
 
 @interface ViewController () <UITableViewDelegate, UITableViewDataSource>

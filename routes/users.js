@@ -13,6 +13,7 @@ module.exports = (api) => {
   api.actions.users.create);
 
   router.put('/:id',
+  api.middlewares.bodyParser.json(),
   api.actions.users.update);
 
   router.delete('/:id',

@@ -1,11 +1,11 @@
-function Todo(json) {
-  this.title = json.title;
-  this.userId = json.userId;
-};
+module.exports = (api) => {
+  const Todo = api.mongoose.model('Todo', {
+    title: {
+      type: String,
+      required: true
+    },
+    dueDate: Date,
+  });
 
-Todo.prototype = {
-  title: String,
-  userId: String
-};
-
-module.exports = Todo;
+  return Todo;
+}

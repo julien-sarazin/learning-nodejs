@@ -36,11 +36,31 @@ module.exports = (api) => {
   }
 
   function update(req, res, next) {
+    User.findByIdAndUpdate(req.params.id, req.body, (err, data) => {
+      if (err) {
+        return res.status(500).send(err);
+      }
 
+      if (!data) {
+        return res.status(204).send()
+      }
+
+      return res.send(data);
+    });
   }
 
   function remove(req, res, next) {
+    User.findByIdAndRemove(req.params.id, (err, data) => {
+      if (err) {
+        return res.status(500).send(err);
+      }
 
+      if (!data) {
+        return res.status(204).send();
+      }
+
+      return res.send(data);
+    });
   }
 
   return  {
