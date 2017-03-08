@@ -6,7 +6,7 @@ module.exports = (api) => {
     },
     birthDate: {
       type: Date,
-      required: true
+      default: new Date()
     }
   });
 
