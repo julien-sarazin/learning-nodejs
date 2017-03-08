@@ -1,17 +1,14 @@
-const uuid = require('uuid/v4');
+module.exports = (api) => {
+  const User = api.mongoose.model('User', {
+    username: {
+      type: String,
+      required: true
+    },
+    birthDate: {
+      type: Date,
+      required: true
+    }
+  });
 
-function User(json) {
-  this._id = uuid();
-  this.username = json.username;
-  this.email = json.email;
-  this.todos = [];
-};
-
-User.prototype = {
-  _id: String,
-  username: String,
-  email: String,
-  todos: Array
-};
-
-module.exports = User;
+  return User;
+}

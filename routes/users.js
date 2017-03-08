@@ -9,6 +9,7 @@ module.exports = (api) => {
 
   router.post('/',
   api.middlewares.bodyParser.json(),
+  api.middlewares.ensureBirthDate,
   api.middlewares.ensureUserName,
   api.actions.users.create);
 
