@@ -1,0 +1,24 @@
+{
+  "name": "learning-nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/julien-sarazin/learning-nodejs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/julien-sarazin/learning-nodejs/issues"
+  },
+  "homepage": "https://github.com/julien-sarazin/learning-nodejs#readme",
+  "dependencies": {
+    "mongoose": "^4.8.6",
+    "passport": "^0.3.2",
+    "passport-facebook": "^2.1.1"
+  }
+}
