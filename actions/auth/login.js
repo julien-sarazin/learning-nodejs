@@ -35,6 +35,8 @@ module.exports = (api) => {
                         exp: Math.floor(Date.now() / 1000) + (60 * 60) * 24, // 1 day.
                         data: token._id.toString() // using the ID of the token has identifier.
                     },
+                    api.settings.security.salt,
+                    {},
                     (err, encryptedToken) => {
                         if (err) {
                             return res.status(500).send(err);
