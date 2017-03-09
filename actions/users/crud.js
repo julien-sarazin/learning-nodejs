@@ -9,7 +9,6 @@ module.exports = (api) => {
 
         User.findOne({
             email: user.email,
-            password: user.password
         }, (err, found) => {
             if (err) {
                 return res.status(500).send(err)
@@ -21,7 +20,7 @@ module.exports = (api) => {
 
             user.save((err, data) => {
                 if (err) {
-                    return res.status.send(err);
+                    return res.status(500).send(err);
                 }
 
                 return res.send(data);
