@@ -1,12 +1,11 @@
 const mongoose = require('mongoose');
 
 module.exports = (api) => {
-  console.log(`connecting to database: ${api.settings.db.url}`);
-  api.mongoose = mongoose.connect(api.settings.db.url);
-  console.log('initializing models...')
+    api.mongoose = mongoose.connect(api.settings.db.url);
 
-  api.models = {
-    User: require('./User')(api),
-    Todo: require('./Todo')(api)
-  };
+    api.models = {
+        User: require('./User')(api),
+        Todo: require('./Todo')(api),
+        Token: require('./Token')(api)
+    };
 };

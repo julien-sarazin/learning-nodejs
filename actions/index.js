@@ -1,7 +1,7 @@
 module.exports = (api) => {
-  console.log('initializing actions...');
-  api.actions = {
-    users: require('./users')(api),
-    todos: require('./todos')(api)
-  };
+    api.actions = {
+        auth: require('./auth')(api),
+        users: require('./users/crud')(api),
+        todos: require('./todos/crud')(api)
+    };
 };

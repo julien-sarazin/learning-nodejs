@@ -1,14 +1,23 @@
-module.exports = (api) => {
-  const User = api.mongoose.model('User', {
-    username: {
-      type: String,
-      required: true
-    },
-    birthDate: {
-      type: Date,
-      default: new Date()
-    }
-  });
+const Schema = require('mongoose').Schema;
+const timestamps = require('mongoose-timestamps');
 
-  return User;
-}
+module.exports = (api) => {
+    const schema = new Schema({
+        email: {
+            type: String,
+            required: true,
+            unique: true
+        },
+        password: {
+            type: String,
+            required: true
+        },
+        tasks: [{
+            type: Schema.Types.ObjectId,
+            ref: 'Todo'
+        }]
+    });
+
+    schema.plugin(timestamps);
+    return api.mongoose.model('User', schema);
+};
