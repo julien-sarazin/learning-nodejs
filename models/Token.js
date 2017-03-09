@@ -10,7 +10,7 @@ module.exports = (api) => {
         }
     });
 
-    schema.plugin(ttl, {ttl: '1s'});
+    schema.plugin(ttl, {ttl: '1d'});
     schema.plugin(timestamps);
     return api.mongoose.model('Token', schema);
 }

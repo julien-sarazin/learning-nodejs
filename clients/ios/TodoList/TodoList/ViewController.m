@@ -97,7 +97,7 @@ static NSString * kUSER_API = @"http://127.0.0.1:3000/users";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"identifier"];
 	NSDictionary *json = self.users[indexPath.row];
-	cell.textLabel.text = json[@"username"];
+	cell.textLabel.text = json[@"email"];
 	return cell;
 }
 
