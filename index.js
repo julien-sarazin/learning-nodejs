@@ -30,4 +30,5 @@ app.get('/auth/facebook/callback',
         res.redirect('/');
     });
 
+console.log('server started on port 3000');
 app.listen(3000);
