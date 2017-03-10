@@ -1,7 +1,14 @@
 {
     "port": 3000,
     "db": {
-        "url": "mongodb://localhost:27017/WAT"
+        "mongo": {
+            "url": "mongodb://localhost:27017/WAT"
+        },
+        "sql": {
+            "name": "WAT",
+            "user": "admin",
+            "password": "admin"
+        }
     },
     "security": {
         "salt": "Eno4fna$01",
