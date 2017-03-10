@@ -44,16 +44,17 @@ G-Bay a pour but de devenir une plateforme d'enchères réservée aux personnes 
 - Le prix d'un element ne peut être négatif
 - La modification/supression d'un produit ne peut se faire que par le vendeur associé à celui-ci.
 - Un vendeur ne peut acheter/encherir sur ses produits
-- Une note ne peut être délivré qu'a partir d'un achat ou obtention (sur fin d'enchère) d'un produit
+- Une note ne peut être délivrée qu'à partir d'un achat ou obtention (sur fin d'enchère) d'un produit
 - L'edition d'information personelle (adresse, nom, prénom, etc...) d'un user ne peut être fait que par celui-ci
 - L'édition d'un avis sur un vendeur ne peut être fait que par le createur de cet avis.
-- L'achat ou enchere d'un produit ne peut être fait que si l'utilisateur dispose de crédit suffisant
-- L'ajout d'un credit d'un user ne peut se faire que par celui-ci
-- Le retrait de crédit ne peut se faire que sur un achat ou une obtention d'enchere.
-    - attention lors d'une enchere, si un utilisateur n'obtient pas le produit, les credit encheris devront être recrédité aux users.
+- L'achat ou enchere d'un produit ne peut être fait que si l'utilisateur dispose de crédits suffisant
+- L'ajout direct de credits (hors remboursement) d'un user ne peut se faire que par celui-ci
+- Le retrait de crédit ne peut se faire que sur un achat direct ou une obtention d'enchere.
+    - attention lors d'une enchere, si un utilisateur n'obtient pas le produit, les credits investis devront être recrédités aux users.
 - La consultation de l'historique des produits vendu sur la plateformes ne pourra être fait que par un membre de G-Bay.
 - La supression d'un compte engendre la supression de tous les produits mis en vente/enchere par le vendeur, dans le cas d'une enchere en cours, les credits seront recrédités aux potentiels acheteurs.
-- Lors d'un achat finalisé, les credit dépensées par l'acheteur seront crédités au vendeur.
+- Lors d'un achat finalisé, les credits dépensés par l'acheteur seront crédités au vendeur.
+- Un produit doit proposer **au minimum**, un titre, une description et un prix (en crédit).
 
 ### 3 - Livraison
 Le projet devra être livré 48h avant la soutenance via un gestionnaire de version (github, gitlab, ou bitbucket) des instructions sur l'installation devront être fournies pour que les jurées puisse installer votre projet sur leur poste.
@@ -62,6 +63,8 @@ Les slides de la soutenance devront être livré 24h avant la soutenance.
 
 **ATTENTION** : Tout retard de livraison engendrera une pénalité sur la note.
 
+Date finale de livraison (sources) : TBD
+Date finale de livraison (slides)  : TBD
 
 ### 4 - Notation 
 Le projet sera noté sur 40 et la noté ramené sur 20.
