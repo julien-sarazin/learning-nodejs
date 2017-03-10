@@ -62,15 +62,20 @@ module.exports = (api) => {
     }
 
     function findAll(req, res, next) {
-        User.find((err, data) => {
-            if (err) {
-                return res.status(500).send(err);
-            }
-            if (!data || data.length == 0) {
-                return res.status(204).send(data)
-            }
-            return res.send(data);
-        });
+        setTimeout(getUsers, 3000);
+        function getUsers() {
+            User.find((err, data) => {
+                if (err) {
+                    return res.status(500).send(err);
+                }
+                if (!data || data.length == 0) {
+                    return res.status(204).send(data)
+                }
+
+                api.middlewares.cache.set(data, req.url);
+                return res.send(data);
+            });
+        }
     }
 
     function update(req, res, next) {
