@@ -3,18 +3,20 @@ module.exports = (api) => {
 
     function create(req, res, next) {
         Driver
-            .sync({force: true})
-            .then(createUser)
+            .create(req.body)
             .then(respond.bind(null, res))
             .catch(spread.bind(null, res));
-
-        function createUser() {
-            return Driver.create(req.body);
-        }
     }
 
-    function update(res, res, next) {
-
+    function update(req, res, next) {
+        Driver
+            .update(req.body, {
+                where: {
+                    id: req.params.id
+                }
+            })
+            .then(respond.bind(null, res))
+            .catch(spread.bind(null, res));
     }
 
     function findOne(req, res, next) {
