@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 
 module.exports = (api) => {
-    return sequelize.define('driver', {
+    return api.sequelize.define('driver', {
         name: Sequelize.STRING
     });
 };

@@ -3,13 +3,9 @@ const Promise = require('bluebird');
 const Sequelize = require('sequelize');
 
 module.exports = (api) => {
-    api.mongoose = mongoose.connect(api.settings.db.url);
+    api.mongoose = mongoose.connect(api.settings.db.mongo.url);
     api.mongoose.promise = Promise;
-    api.sequelize =  new Sequelize(
-        api.settings.db.sql.name,
-        api.settings.db.sql.user,
-        api.settings.db.sql.password
-    );
+    api.sequelize =  new Sequelize(api.settings.db.sql.url);
 
     api.models = {
         User: require('./mongo/User')(api),

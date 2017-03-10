@@ -5,9 +5,7 @@
             "url": "mongodb://localhost:27017/WAT"
         },
         "sql": {
-            "name": "WAT",
-            "user": "admin",
-            "password": "admin"
+            "url": "postgres://admin:admin@localhost:5432/WAT"
         }
     },
     "security": {
