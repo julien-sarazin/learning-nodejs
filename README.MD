@@ -40,6 +40,7 @@ G-Bay a pour but de devenir une plateforme d'enchères réservée aux personnes 
 
 ### 2 - Regles fonctionelles
 - L'ensemble des échanges sera fera via le `Content-Type: application/json`.
+- L'identification d'un utilisateur se fera par le biais d'un échange de Token de le header `Authorization`
 - Le prix d'un element ne peut être négatif
 - La modification/supression d'un produit ne peut se faire que par le vendeur associé à celui-ci.
 - Un vendeur ne peut acheter/encherir sur ses produits
