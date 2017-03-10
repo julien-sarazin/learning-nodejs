@@ -4,6 +4,15 @@
         "url": "mongodb://localhost:27017/WAT"
     },
     "security": {
-        "salt": "Eno4fna$01"
+        "salt": "Eno4fna$01",
+        "roles": [
+            "Admin",
+            "Manager",
+            "Peon",
+            "Intern",
+            "Developer",
+            "Student",
+            "Lambda"
+        ]
     }
 }

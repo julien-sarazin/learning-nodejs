@@ -1,8 +1,8 @@
 module.exports = (api) => {
-    console.log('initializing middlewares...');
     api.middlewares = {
         ensureAuthenticated: require('./ensureAuthenticated')(api),
         logger: require('./logger'),
-        bodyParser: require('body-parser')
+        bodyParser: require('body-parser'),
+        ensureRole: require('./ensureRole')(api)
     };
 };

@@ -4,6 +4,7 @@
   "description": "### 1- Node Package Manager (NPM) 1.1 La commande npm",
   "main": "playground.js",
   "dependencies": {
+    "bluebird": "^3.5.0",
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
     "jsonwebtoken": "^7.3.0",

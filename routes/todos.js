@@ -19,5 +19,12 @@ module.exports = (api) => {
     router.delete('/:id',
         api.actions.todos.remove);
 
+    router.post('/:id/assign',
+        api.middlewares.bodyParser.json(),
+        api.middlewares.ensureAuthenticated,
+        api.middlewares.ensureRole('Admin'),
+        api.actions.todos.assign
+    )
+
     return router;
 }

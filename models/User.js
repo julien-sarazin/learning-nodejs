@@ -12,6 +12,10 @@ module.exports = (api) => {
             type: String,
             required: true
         },
+        role: {
+            type: Schema.Types.ObjectId,
+            ref: 'Role'
+        },
         tasks: [{
             type: Schema.Types.ObjectId,
             ref: 'Todo'

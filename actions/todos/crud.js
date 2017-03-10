@@ -83,11 +83,25 @@ module.exports = (api) => {
         });
     }
 
+    function assign(req, res, next) {
+        Todo.findByIdAndUpdate(req.params.id, {
+                assigned: req.body.userId
+            },
+            (err, todo) => {
+                if (err) {
+                    return res.status(500).send(err);
+                }
+
+                res.send(todo);
+            });
+    }
+
     return {
         create,
         findOne,
         findAll,
         update,
-        remove
+        remove,
+        assign
     };
 }
