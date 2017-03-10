@@ -1,7 +1,4 @@
-# Projet Pédagogique Javascript Avancé & NodeJS.
-
------
-#API G-Bay
+# Projet Pédagogique Javascript Avancé & NodeJS: API G-Bay
 
 Pour votre projet pédagogique de troisième année, vous devrez construire une API suivant les méthodologies vu en cours.
 
