@@ -54,11 +54,12 @@ G-Bay a pour but de devenir une plateforme d'enchères réservée aux personnes 
 - Lors d'un achat finalisé, les credits dépensés par l'acheteur seront crédités au vendeur.
 - Un produit doit proposer **au minimum**, un titre, une description et un prix (en crédit).
 
-### 2 - Règles Techniques
+### 3 - Règles Techniques
 - L'ensemble des échanges sera fera via le `Content-Type: application/json`.
 - L'identification d'un utilisateur se fera par le biais d'un échange de Token de le header `Authorization`.
 - Les technologies de persistence sont libres (SQL/NOSQL) mais devront être justifiée lors de la soutenance.
-### 3 - Livraison
+
+### 4 - Livraison
 Le projet devra être livré 48h avant la soutenance via un gestionnaire de version (github, gitlab, ou bitbucket) des instructions sur l'installation devront être fournies pour que les jurées puissent installer votre projet sur leur poste.
 
 Les slides de la soutenance devront être livré 24h avant la soutenance.
@@ -68,13 +69,13 @@ Les slides de la soutenance devront être livré 24h avant la soutenance.
 Date finale de livraison (sources) : TBD
 Date finale de livraison (slides)  : TBD
 
-### 4 - Notation 
+### 5 - Notation 
 Le projet sera noté sur 40 et la noté ramenée sur 20.
 
  - Une note sur 20 concernant la qualité de code et le respect du cahier des charges. (Note d'équipe)
  - Une note sur 20 concernant la qualité de la prestation orale, de la compréhension générale et des bonnes réponses aux questions qui seront posées lors de la soutenance. (Note individuelle)
  
-### 5 - Bonus (Facultatif)
+### 6 - Bonus (Facultatif)
 Une implémentation d'un client graphique illustrant la consommation de l'API sera appréciée et ne pourra influer que positivement sur la notation globale du projet. 
  **ATTENTION** : L'implémentation d'un client quel qu'il soit ne doit pas être l'unique tache effectuée par un des membres du groupe. Chaque membre devra participer **significativement** au développement de la partie serveur.
 
