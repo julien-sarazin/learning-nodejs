@@ -72,7 +72,7 @@ module.exports = (api) => {
                     return res.status(204).send(data)
                 }
 
-                api.middlewares.cache.set(data, req.url);
+                api.middlewares.cache.set('User', data, req.originalUrl);
                 return res.send(data);
             });
         }

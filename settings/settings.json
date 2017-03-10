@@ -14,5 +14,8 @@
             "Student",
             "Lambda"
         ]
+    },
+    "cache": {
+        "ttl": 30000
     }
 }

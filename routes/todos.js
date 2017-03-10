@@ -2,6 +2,7 @@ const router = require('express').Router();
 
 module.exports = (api) => {
     router.get('/',
+        api.middlewares.cache.get,
         api.actions.todos.findAll);
 
     router.get('/:id',

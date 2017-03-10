@@ -9,6 +9,7 @@ module.exports = (api) => {
         api.actions.users.findOne);
 
     router.post('/',
+        api.middlewares.cache.clean('User'),
         api.middlewares.bodyParser.json(),
         api.actions.users.create);
 
