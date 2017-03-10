@@ -57,7 +57,7 @@ G-Bay a pour but de devenir une plateforme d'enchères réservée aux personnes 
 - Un produit doit proposer **au minimum**, un titre, une description et un prix (en crédit).
 
 ### 3 - Livraison
-Le projet devra être livré 48h avant la soutenance via un gestionnaire de version (github, gitlab, ou bitbucket) des instructions sur l'installation devront être fournies pour que les jurées puisse installer votre projet sur leur poste.
+Le projet devra être livré 48h avant la soutenance via un gestionnaire de version (github, gitlab, ou bitbucket) des instructions sur l'installation devront être fournies pour que les jurées puissent installer votre projet sur leur poste.
 
 Les slides de la soutenance devront être livré 24h avant la soutenance.
 
@@ -67,9 +67,12 @@ Date finale de livraison (sources) : TBD
 Date finale de livraison (slides)  : TBD
 
 ### 4 - Notation 
-Le projet sera noté sur 40 et la noté ramené sur 20.
+Le projet sera noté sur 40 et la noté ramenée sur 20.
 
- - Une note sur 20 concernant la qualité de code et le respect du cahier des charges.
- - Une note sur 20 concernant la qualité de la prestation orale, de la compréhension générale et des bonnes réponses aux questions qui seront posées lors de la soutenance.
-
+ - Une note sur 20 concernant la qualité de code et le respect du cahier des charges. (Note d'équipe)
+ - Une note sur 20 concernant la qualité de la prestation orale, de la compréhension générale et des bonnes réponses aux questions qui seront posées lors de la soutenance. (Note individuelle)
+ 
+ ### 5 - Bonus (Facultatif)
+ Une implémentation d'un client graphique illustrant la consommation de l'API sera appréciée et ne pourra influer que positivement sur la notation globale du projet. 
+ **ATTENTION** : L'implémentation d'un client quel qu'il soit ne doit pas être l'unique tache effectuée par un des membres du groupe. Chaque membre devra participer **significativement** au développement de la partie serveur.
 
