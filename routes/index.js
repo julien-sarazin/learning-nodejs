@@ -3,4 +3,5 @@ module.exports = (api) => {
     api.use('/auth', require('./auth')(api));
     api.use('/users', require('./users')(api));
     api.use('/todos', require('./todos')(api));
+    api.use('/drivers', require('./drivers')(api));
 };
