@@ -1,4 +1,5 @@
 module.exports = (server) => {
+    const Todo = server.models.Todo;
     const User = server.models.User;
 
     return {
@@ -11,28 +12,59 @@ module.exports = (server) => {
 
 
   function create(req, res, next) {
-      let user = new User(req.body);
-      return user.save()
+      let user = null;
+
+      return User.findById(req.body.userId)
+          .then(ensureOne)
+          .then(createTodo)
+          .then(setCreatorAndAssign)
+          .then(persist)
           .then(respond.bind(null, res))
           .catch(spread.bind(null, res));
+
+
+      function createTodo(data) {
+          user = data;
+          return new Todo(req.body);
+      }
+
+      function setCreatorAndAssign(todo) {
+          todo.creator = req.body.userId;
+          todo.assigned = req.body.userId;
+          return todo;
+      }
+
+      function persist(todo){
+          return todo.save()
+              .then(addToUser)
+              .then(returnTodo);
+
+          function addToUser(todo) {
+              user.tasks.push(todo._id);
+              user.save()
+          }
+
+          function returnTodo() {
+              return todo;
+          }
+      }
   }
 
   function list(req, res, next) {
-      User.find()
+      Todo.find()
           .then(respond.bind(null, res))
           .catch(spread.bind(null, res));
   }
 
   function show(req, res, next) {
-      User.findById(req.params.id)
-          .populate('tasks')
+      Todo.findById(req.params.id)
           .then(ensureOne)
           .then(respond.bind(null, res))
           .catch(spread.bind(null, res));
   }
 
   function update(req, res, next) {
-      User.findByIdAndUpdate(req.body.id, req.body)
+      Todo.findByIdAndUpdate(req.body.id, req.body)
           .then(ensureOne)
           .then(empty)
           .then(respond.bind(null, res))
@@ -40,7 +72,7 @@ module.exports = (server) => {
   }
 
   function remove(req, res, next) {
-      User.findByIdAndRemove(req.params.id)
+      Todo.findByIdAndRemove(req.params.id)
           .then(ensureOne)
           .then(empty)
           .then(respond.bind(null, res))
@@ -53,7 +85,7 @@ function empty(data) {
 }
 
 function ensureOne(data) {
-    return (data) ? data : Promise.reject({code: 404, message: 'user.not.found'})
+    return (data) ? data : Promise.reject({code: 404, message: 'Todo.not.found'})
 }
 
 function respond(res, data) {
