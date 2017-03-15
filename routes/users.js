@@ -5,7 +5,7 @@ module.exports = (server) => {
 
     router.post('/',
         server.middlewares.bodyParser.json(),
-        server.middlewares.ensureFields(['name', 'email']),
+        server.middlewares.ensureFields(['email', 'password']),
         server.actions.users.create
     );
 

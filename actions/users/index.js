@@ -1,3 +1,5 @@
+const sha1 = require('sha1');
+
 module.exports = (server) => {
     const User = server.models.User;
 
@@ -12,9 +14,19 @@ module.exports = (server) => {
 
   function create(req, res, next) {
       let user = new User(req.body);
-      return user.save()
+
+      return User.findOne({
+          email: req.body.email
+      })
+          .then(ensureEmpty)
+          .then(createUser)
           .then(respond.bind(null, res))
           .catch(spread.bind(null, res));
+
+      function createUser() {
+          user.password = sha1(user.password);
+          return user.save();
+      }
   }
 
   function list(req, res, next) {
@@ -47,6 +59,11 @@ module.exports = (server) => {
           .catch(spread.bind(null, res));
   }
 };
+
+
+function ensureEmpty(data) {
+    return (!data || data.length == 0) ? data : Promise.reject({code: 401, message:'already.exists'})
+}
 
 function empty(data) {
     return (data) ? null : data
