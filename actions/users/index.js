@@ -25,6 +25,7 @@ module.exports = (server) => {
 
   function show(req, res, next) {
       User.findById(req.params.id)
+          .then(ensureOne)
           .then(respond.bind(null, res))
           .catch(spread.bind(null, res));
   }
@@ -32,6 +33,7 @@ module.exports = (server) => {
   function update(req, res, next) {
       User.findByIdAndUpdate(req.body.id, req.body)
           .then(ensureOne)
+          .then(empty)
           .then(respond.bind(null, res))
           .catch(spread.bind(null, res));
   }
@@ -39,13 +41,18 @@ module.exports = (server) => {
   function remove(req, res, next) {
       User.findByIdAndRemove(req.params.id)
           .then(ensureOne)
+          .then(empty)
           .then(respond.bind(null, res))
           .catch(spread.bind(null, res));
   }
 };
 
+function empty(data) {
+    return (data) ? null : data
+}
+
 function ensureOne(data) {
-    return (data) ? null : Promise.reject({code: 404, message: 'user.not.found'})
+    return (data) ? data : Promise.reject({code: 404, message: 'user.not.found'})
 }
 
 function respond(res, data) {
