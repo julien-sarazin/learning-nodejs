@@ -20,6 +20,8 @@ G-Bay a pour but de devenir une plateforme d'enchères réservée aux personnes 
      - Permettre de s'authentifier
     
 - Les services nécessitant d'être authentifié seront :
+     - Permettre d'éditer ses informations personnelles,
+     - Permettre de créditer son compte de crédits,
      - Permettre d'ajouter un produit sur la plateforme,
      - Permettre d'éditer un produit de la plateforme,
      - Permettre de supprimer un produit de la plateforme,
