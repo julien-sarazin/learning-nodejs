@@ -26,7 +26,7 @@ G-Bay a pour but de devenir une plateforme d'enchères réservée aux personnes 
      - Permettre d'éditer un produit de la plateforme,
      - Permettre de supprimer un produit de la plateforme,
      - Permettre de laisser un avis sur un vendeur,
-     - Permettre de noter un vendeur,
+     - Permettre de noter une vente,
      - Permettre de supprimer un avis sur un vendeur,
      - Permettre d'éditer un avis sur un vendeur,
      - Permettre de mettre un produit en achat direct,
@@ -46,6 +46,8 @@ G-Bay a pour but de devenir une plateforme d'enchères réservée aux personnes 
 - Un vendeur ne peut acheter/encherir sur ses produits.
 - Une note ne peut être délivrée qu'à partir d'un achat ou obtention (sur fin d'enchère) d'un produit.
 - L'edition d'information personelle (adresse, nom, prénom, etc...) d'un user ne peut être fait que par celui-ci.
+- La création d'un avis sur un vendeur ne peut être fait que si **au moins** un achat/vente a été effectué avec celui-ci.
+- La création d'un avis sur un vendeur est **unique** par utilisateur, un même utilisateur ne peut donner deux avis sur un même vendeur.
 - L'édition d'un avis sur un vendeur ne peut être fait que par le createur de cet avis.
 - L'achat ou enchere d'un produit ne peut être fait que si l'utilisateur dispose de crédits suffisant.
 - L'ajout direct de credits (hors remboursement) d'un user ne peut se faire que par celui-ci.
