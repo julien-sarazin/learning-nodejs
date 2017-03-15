@@ -1,4 +1,5 @@
 const timestamps = require('mongoose-timestamps');
+const ttl = require('mongoose-ttl');
 
 module.exports = (server) => {
     const Schema = server.mongoose.Schema;
@@ -11,6 +12,7 @@ module.exports = (server) => {
     });
 
     TokenSchema.plugin(timestamps);
+    TokenSchema.plugin(ttl, {ttl : '10s'});
 
     return server.mongoose.model('Token', TokenSchema);
 };
