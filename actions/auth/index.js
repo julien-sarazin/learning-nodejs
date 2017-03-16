@@ -16,20 +16,14 @@ module.exports = (server) => {
         })
             .then(server.utils.ensureOne)
             .catch(server.utils.reject(401, 'invalid.credentials'))
-            .then(createToken)
             .then(sign)
             .then(res.commit)
             .catch(res.commit);
 
-        function createToken(user){
-            return new Token({userId: user._id})
-                .save();
-        }
-
-        function sign(token) {
+        function sign(user) {
             return new Promise((resolve, reject) => {
                 jwt.sign({
-                    data: token
+                    data: {userId: user._id}
                 }, server.settings.security.salt, {
                     expiresIn: '1h'
                 }, (err, encryptedToken) => {
