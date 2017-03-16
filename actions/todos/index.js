@@ -13,7 +13,7 @@ module.exports = (server) => {
   function create(req, res, next) {
       let user = null;
 
-      return User.findById(req.body.userId)
+      return User.findById(req.userId)
           .then(server.utils.ensureOne)
           .catch(server.utils.reject(403, 'invalid.user'))
           .then(createTodo)
@@ -28,8 +28,8 @@ module.exports = (server) => {
       }
 
       function setCreatorAndAssign(todo) {
-          todo.creator = req.body.userId;
-          todo.assigned = req.body.userId;
+          todo.creator = req.userId;
+          todo.assigned = req.userId;
           return todo;
       }
 

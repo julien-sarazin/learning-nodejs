@@ -6,7 +6,7 @@ module.exports = (server) => {
     router.post('/',
         server.middlewares.ensureAuthenticated,
         server.middlewares.bodyParser.json(),
-        server.middlewares.ensureFields('userId'),
+        server.middlewares.ensureFields('title'),
         server.actions.todos.create
     );
 
