@@ -4,5 +4,8 @@
         "mongo": {
             "url": "mongodb://localhost:27017/todolist"
         }
+    },
+    "security": {
+        "salt": "4z3rt7uc$S"
     }
 }

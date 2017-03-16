@@ -15,7 +15,7 @@ module.exports = (server) => {
 
       return User.findById(req.body.userId)
           .then(server.utils.ensureOne)
-          .then(server.utils.reject(403, 'invalid.user'))
+          .catch(server.utils.reject(403, 'invalid.user'))
           .then(createTodo)
           .then(setCreatorAndAssign)
           .then(persist)

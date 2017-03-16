@@ -1,3 +1,5 @@
+const jwt = require('jsonwebtoken');
+
 module.exports = (server) => {
     const Token = server.models.Token;
     const User = server.models.User;
@@ -8,16 +10,30 @@ module.exports = (server) => {
         if (!authorization)
             return unauthorized();
 
-        Token.findById(authorization)
-            .then(ensureOne)
+
+        return verifyToken()
             .then(findAssociatedUser)
-            .then(ensureOne)
+            .then(server.utils.ensureOne)
             .then(setUserId)
             .then(next)
             .catch(unauthorized);
 
-        function findAssociatedUser(token) {
-            return User.findById(token.userId)
+        function verifyToken() {
+            return new Promise((resolve, reject) => {
+                jwt.verify(authorization,
+                    server.settings.security.salt,
+                    (err, decryptedToken) => {
+                        if (err){
+                            return reject(err)
+                        }
+
+                        return resolve(decryptedToken)
+                });
+            })
+        }
+
+        function findAssociatedUser(decryptedToken) {
+            return User.findById(decryptedToken.data.userId)
         }
 
         function setUserId(user) {
