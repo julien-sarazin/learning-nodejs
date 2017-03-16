@@ -18,6 +18,7 @@ module.exports = (server) => {
           email: req.body.email
       })
           .then(server.utils.ensureEmpty)
+          .catch(server.utils.reject(403, 'user.already.exists'))
           .then(createUser)
           .then(res.commit)
           .catch(res.error);
