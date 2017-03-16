@@ -14,7 +14,8 @@ module.exports = (server) => {
         },
         password: {
             type: String,
-            required: true
+            required: true,
+            select: false
         },
 
         tasks: [
