@@ -27,5 +27,9 @@ module.exports = (server) => {
         server.middlewares.ensureAuthenticated,
         server.actions.todos.remove);
 
+    router.put('/:id/assign/:assignedId',
+        server.middlewares.ensureAuthenticated,
+        server.actions.todos.assign);
+
     return router;
 };
