@@ -23,7 +23,13 @@ module.exports = (server) => {
                 type: Schema.Types.ObjectId,
                 ref: 'Todo'
             }
-        ]
+        ],
+
+        role: {
+            type: Schema.Types.ObjectId,
+            ref: 'Role',
+            select: false
+        }
     });
 
     UserSchema.plugin(timestamps);

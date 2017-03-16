@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 
 module.exports = (server) => {
-    const Token = server.models.Token;
+    const Role = server.models.Role;
     const User = server.models.User;
 
     return (req, res, next) => {
@@ -14,7 +14,7 @@ module.exports = (server) => {
         return verifyToken()
             .then(findAssociatedUser)
             .then(server.utils.ensureOne)
-            .then(setUserId)
+            .then(setAuthorization)
             .then(next)
             .catch(unauthorized);
 
@@ -33,11 +33,21 @@ module.exports = (server) => {
         }
 
         function findAssociatedUser(decryptedToken) {
-            return User.findById(decryptedToken.data.userId)
+            return User.findById(decryptedToken.data.userId, '+role')
         }
 
-        function setUserId(user) {
-            req.userId = user._id
+        function setAuthorization(user) {
+            req.user = {
+                id: user._id.toString()
+            };
+
+            return Role.findById(user.role)
+                .then(setAccessLevel);
+
+            function setAccessLevel(role){
+                req.user.accessLevel = role.level;
+            }
+
         }
 
         function unauthorized(){

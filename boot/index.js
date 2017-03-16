@@ -1,3 +1,4 @@
 module.exports = (server) => {
-    server.use(require('./res'));
+    require('./loadRoles')(server);
+    require('./loadUser')(server);
 };

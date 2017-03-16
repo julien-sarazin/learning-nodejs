@@ -7,5 +7,23 @@
     },
     "security": {
         "salt": "4z3rt7uc$S"
+    },
+    "acl": {
+        "roles": [
+            {
+                "name": "admin",
+                "level": 1
+            },
+            {
+                "name": "lambda",
+                "level": 2
+            }
+        ],
+        "actions": {
+            "todos.create": 2,
+            "todos.remove": 2,
+            "todos.update": 2,
+            "todos.assign": 1
+        }
     }
 }

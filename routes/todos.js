@@ -5,6 +5,7 @@ module.exports = (server) => {
 
     router.post('/',
         server.middlewares.ensureAuthenticated,
+        server.middlewares.ensureRights('todos.create'),
         server.middlewares.bodyParser.json(),
         server.middlewares.ensureFields('title'),
         server.actions.todos.create
@@ -29,6 +30,7 @@ module.exports = (server) => {
 
     router.put('/:id/assign/:assignedId',
         server.middlewares.ensureAuthenticated,
+        server.middlewares.ensureRights('todos.assign'),
         server.actions.todos.assign);
 
     return router;
