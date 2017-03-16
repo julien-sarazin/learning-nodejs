@@ -70,8 +70,9 @@ Les slides de la soutenance devront être livré 24h avant la soutenance.
 
 **ATTENTION** : Tout retard de livraison engendrera une pénalité sur la note.
 
-Date finale de livraison (sources) : TBD
-Date finale de livraison (slides)  : TBD
+**Date de soutenance: 02/05/2017**
+Date finale de livraison (sources) : **30/04/2017**
+Date finale de livraison (slides)  : **01/05/2017**
 
 ### 5 - Notation 
 Le projet sera noté sur 40 et la noté ramenée sur 20.
