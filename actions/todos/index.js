@@ -9,20 +9,19 @@ module.exports = (server) => {
       update,
       remove
   };
-
-
+    
   function create(req, res, next) {
       let user = null;
 
       return User.findById(req.body.userId)
-          .then(ensureOne)
+          .then(server.utils.ensureOne)
+          .then(server.utils.reject(403, 'invalid.user'))
           .then(createTodo)
           .then(setCreatorAndAssign)
           .then(persist)
-          .then(respond.bind(null, res))
-          .catch(spread.bind(null, res));
-
-
+          .then(res.commit)
+          .catch(res.error);
+      
       function createTodo(data) {
           user = data;
           return new Todo(req.body);
@@ -52,54 +51,34 @@ module.exports = (server) => {
 
   function list(req, res, next) {
       Todo.find()
-          .then(respond.bind(null, res))
-          .catch(spread.bind(null, res));
+          .then(res.commit)
+          .catch(res.error);
   }
 
   function show(req, res, next) {
       Todo.findById(req.params.id)
-          .then(ensureOne)
-          .then(respond.bind(null, res))
-          .catch(spread.bind(null, res));
+          .then(server.utils.ensureOne)
+          .catch(server.utils.reject(404, 'todo.not.found'))
+          .then(res.commit)
+          .catch(res.error);
   }
 
   function update(req, res, next) {
       Todo.findByIdAndUpdate(req.body.id, req.body)
-          .then(ensureOne)
-          .then(empty)
-          .then(respond.bind(null, res))
-          .catch(spread.bind(null, res));
+          .then(server.utils.ensureOne)
+          .catch(server.utils.reject(404, 'todo.not.found'))
+          .then(server.utils.empty)
+          .then(res.commit)
+          .catch(res.error);
   }
 
   function remove(req, res, next) {
       Todo.findByIdAndRemove(req.params.id)
-          .then(ensureOne)
-          .then(empty)
-          .then(respond.bind(null, res))
-          .catch(spread.bind(null, res));
+          .then(server.utils.ensureOne)
+          .catch(server.utils.reject(404, 'todo.not.found'))
+          .then(server.utils.empty)
+          .then(res.commit)
+          .catch(res.error);
   }
 };
 
-function empty(data) {
-    return (data) ? null : data
-}
-
-function ensureOne(data) {
-    return (data) ? data : Promise.reject({code: 404, message: 'Todo.not.found'})
-}
-
-function respond(res, data) {
-    if (!data) {
-        return res.status(204).send()
-    }
-
-    return res.send(data);
-}
-
-function spread(res, error) {
-    if (error.code) {
-        return res.status(error.code).send(error.message);
-    }
-
-    return res.status(500).send(error);
-}

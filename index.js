@@ -1,6 +1,8 @@
 const express = require('express');
 const server = express();
 
+require('./utils')(server);
+require('./boot')(server);
 require('./settings')(server);
 require('./models')(server);
 require('./middlewares')(server);

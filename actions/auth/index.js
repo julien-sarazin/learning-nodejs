@@ -9,17 +9,17 @@ module.exports = (server) => {
         login
     };
 
-
     function login(req, res, next) {
         User.findOne({
             email: req.body.email,
             password: sha1(req.body.password)
         })
-            .then(ensureOne)
+            .then(server.utils.ensureOne)
+            .catch(server.utils.reject(401, 'invalid.credentials'))
             .then(createToken)
             .then(getTokenId)
-            .then(respond.bind(null, res))
-            .catch(spread.bind(null, res));
+            .then(res.commit)
+            .catch(res.commit);
 
         function createToken(user){
             return new Token({userId: user._id})
@@ -31,23 +31,3 @@ module.exports = (server) => {
         }
     }
 };
-
-function ensureOne(data) {
-    return (data) ? data : Promise.reject({code: 404, message: 'Todo.not.found'})
-}
-
-function respond(res, data) {
-    if (!data) {
-        return res.status(204).send()
-    }
-
-    return res.send(data);
-}
-
-function spread(res, error) {
-    if (error.code) {
-        return res.status(error.code).send(error.message);
-    }
-
-    return res.status(500).send(error);
-}
