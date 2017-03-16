@@ -8,11 +8,12 @@ module.exports = (server) => {
         server.middlewares.ensureRights('todos.create'),
         server.middlewares.bodyParser.json(),
         server.middlewares.ensureFields('title'),
+        server.middlewares.cache.clean('todos'),
         server.actions.todos.create
     );
 
     router.get('/',
-        server.middlewares.ensureAuthenticated,
+        server.middlewares.cache.get,
         server.actions.todos.list);
 
     router.get('/:id',

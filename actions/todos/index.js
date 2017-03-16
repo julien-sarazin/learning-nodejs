@@ -51,9 +51,21 @@ module.exports = (server) => {
     }
 
     function list(req, res, next) {
-        Todo.find()
-            .then(res.commit)
-            .catch(res.error);
+        setTimeout(() => {
+            Todo.find()
+                .then(setCache)
+                .then(res.commit)
+                .catch(res.error);
+        }, 3000);
+
+        function setCache(todos) {
+            server.cache.set({
+                group: 'todos',
+                key: req.originalUrl,
+                value: todos
+            });
+            return todos;
+        }
     }
 
     function show(req, res, next) {
