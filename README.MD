@@ -32,7 +32,7 @@ Grello a pour but de devenir une plateforme de gestion de taches réservée aux 
 - Une tache ne peut être créée que par le créateur du projet ou un membre de l'équipe associée au projet.
 - L'attribution/modification d'un rôle pour un membre d'une équipe ne peut se faire que par le créateur de cette équipe.
 - Les roles de membres d'une équipe sont : "Owner", "Admin", "Member"
-- L'ajout/suppression/modification d'un membre de l'équipe, a l'exception du role ne peut se faire que par le créateur de l'équipe, l'administrateur, ou le membre lui-même.
+- La suppression d'un membre de l'équipe, a l'exception du role ne peut se faire que par le créateur de l'équipe, l'administrateur, ou le membre lui-même.
 - La liste des taches d'un projet est accessible par tous les membres du projet
 - L'assignation d'une tache à un membre de l'équipe ne peut se faire que par le créateur de l'équipe, ou l'administrateur de l'équipe
 - Un utilisateur peu quitter une équipe
