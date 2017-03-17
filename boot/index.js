@@ -1,4 +1,7 @@
 module.exports = (server) => {
-    require('./loadRoles')(server);
-    require('./loadUser')(server);
+    const loadRoles = require('./loadRoles');
+    const loadUser  = require('./loadUser');
+
+    return loadRoles(server)
+        .then(loadUser.bind(null, server))
 };

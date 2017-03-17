@@ -12,7 +12,7 @@ module.exports = (req, res, next) => {
             return res.status(error.code).send(error.message);
         }
 
-        return res.status(500).send(error)
+        return res.status(500).send(error.toString())
     };
 
     next();

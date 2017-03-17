@@ -4,12 +4,15 @@ module.exports = (server) => {
     const Role = server.models.Role;
     const User = server.models.User;
 
+    console.log('Starting creating users script..');
     User.findOne()
         .then(server.utils.ensureEmpty)
         .then(createAdmin)
-        .catch(() => {});
+        .catch(() => {
+            console.log('done');
+        });
 
-    function createAdmin(){
+    function createAdmin() {
         const admin = {
             email: 'admin@admin.com',
             password: sha1('admin')
@@ -20,13 +23,14 @@ module.exports = (server) => {
             .then(setRole);
 
 
-        function setRole(user){
+        function setRole(user) {
             Role.findOne({name: 'admin'})
                 .then(set);
 
-            function set(role){
+            function set(role) {
                 user.role = role._id.toString();
                 return user.save();
+                console.log('done.')
             }
         }
     }
