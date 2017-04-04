@@ -14,6 +14,10 @@ module.exports = (api) => {
         password: {
             type: String,
             required: true
+        },
+        rent: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Car'
         }
     });
 

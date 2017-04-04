@@ -49,29 +49,25 @@ module.exports = (api) => {
 
     function show(req, res, next) {
         User.findById(req.params.id)
-            .then(respond);
+            .then(ensureOne)
+            .then(res.prepare(200))
+            .catch(res.prepare(404));
 
-        function respond(data) {
-            if (!data) {
-                return res.status(404).send()
-            }
-
-            res.send(data);
+        function ensureOne(data) {
+            return (data)? data : Promise.reject('user.not.found');
         }
     }
 
     function update(req, res, next) {
         User.findByIdAndUpdate(req.params.id, req.body)
-            .then(()=> {
-                res.status(204).send()
-            })
-            .catch(() => {
-                res.status(500).send();
-            })
+            .then(res.prepare(204))
+            .catch(res.prepare(500));
     }
 
     function remove(req, res, next) {
-
+        User.findByIdAndRemove(req.params.id)
+            .then(res.prepare(204))
+            .catch(res.prepare(500));
     }
 
     return {

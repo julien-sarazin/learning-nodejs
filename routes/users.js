@@ -7,7 +7,6 @@ module.exports = (api) => {
 
     router.post('/',
         api.middlewares.bodyParser.json(),
-        api.middlewares.ensureUserName,
         api.actions.users.create);
 
     router.put('/:id',

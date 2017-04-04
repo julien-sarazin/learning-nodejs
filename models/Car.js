@@ -7,9 +7,9 @@ module.exports = (api) => {
             type: String,
             default: 'unknown'
         },
-        rented: {
-            type: Boolean,
-            default: false
+        renter: {
+            type: Schema.Types.ObjectId,
+            ref: 'User'
         }
     });
 
