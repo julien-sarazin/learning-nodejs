@@ -48,7 +48,16 @@ module.exports = (api) => {
     }
 
     function show(req, res, next) {
+        User.findById(req.params.id)
+            .then(respond);
 
+        function respond(data) {
+            if (!data) {
+                return res.status(404).send()
+            }
+
+            res.send(data);
+        }
     }
 
     function update(req, res, next) {
