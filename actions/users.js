@@ -61,7 +61,13 @@ module.exports = (api) => {
     }
 
     function update(req, res, next) {
-
+        User.findByIdAndUpdate(req.params.id, req.body)
+            .then(()=> {
+                res.status(204).send()
+            })
+            .catch(() => {
+                res.status(500).send();
+            })
     }
 
     function remove(req, res, next) {
