@@ -1,32 +1,17 @@
-let AUTO_INCREMENT_ID = 0;
+module.exports = (api) => {
+    const mongoose = api.mongoose;
+    const Schema = api.mongoose.Schema;
 
-function Car(dict) {
-  AUTO_INCREMENT_ID ++;
-  this.id = AUTO_INCREMENT_ID;
-  this.model = dict.model;
-  this.rented = false;
-}
+    let CarSchema = Schema({
+        model: {
+            type: String,
+            default: 'unknown'
+        },
+        rented: {
+            type: Boolean,
+            default: false
+        }
+    });
 
-Car.prototype = {
-  id: Number,
-  model: String
+    return mongoose.model('Car', CarSchema);
 };
-
-Car.prototype.rent = function() {
-  if (this.rented) {
-    return false;
-  }
-
-  return this.rented = true;
-}
-
-Car.prototype.back = function() {
-  if (!this.rented) {
-    return false
-  }
-
-  this.rented = false;
-  return true;
-}
-
-module.exports = Car;

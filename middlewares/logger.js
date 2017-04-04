@@ -4,7 +4,7 @@ const path = require('path');
 const logsPath = path.join(__dirname, '../logs');
 const logFile = Date.now().toString() + '.log';
 
-(function ensureLogsDirectoryExists() {
+const ensureLogsDirectoryExists = function () {
     fs.stat(logsPath, (err, stats) => {
         if (err || !stats) {
             fs.mkdir(logsPath, (err, data) => {
@@ -12,7 +12,9 @@ const logFile = Date.now().toString() + '.log';
             })
         }
     });
-}());
+};
+
+ensureLogsDirectoryExists();
 
 module.exports = (req, res, next) => {
     const date = new Date().toString();

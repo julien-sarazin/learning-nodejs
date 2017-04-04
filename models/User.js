@@ -1,14 +1,21 @@
-let AUTO_INCREMENT_ID = 0;
+module.exports = (api) => {
+    const mongoose = api.mongoose;
+    const Schema = api.mongoose.Schema;
 
-function User(dict) {
-  AUTO_INCREMENT_ID ++;
-  this.id = AUTO_INCREMENT_ID;
-  this.name = dict.name;
-}
+    let UserSchema = Schema({
+        name: {
+            type: String,
+            default: 'unknown'
+        },
+        email: {
+            type: String,
+            required: true
+        },
+        password: {
+            type: String,
+            required: true
+        }
+    });
 
-User.prototype = {
-  id: Number,
-  name: String
+    return mongoose.model('User', UserSchema);
 };
-
-module.exports = User;

@@ -1,11 +1,9 @@
+const mongoose = require('mongoose');
+
 module.exports = (api) => {
-  api.db = {
-    users: [],
-    cars: []
-  };
-  
-  api.models = {
-    User: require('./User'),
-    Car: require('./Car')
-  };
+    api.mongoose = mongoose.connect(api.settings.db.url);
+    api.models = {
+        User: require('./User')(api),
+        Car: require('./Car')(api)
+    }
 };
