@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/julien-sarazin/learning-nodejs#readme",
   "dependencies": {
+    "body-parser": "^1.17.1",
     "express": "^4.15.2"
   }
 }

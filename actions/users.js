@@ -2,9 +2,7 @@ module.exports = (api) => {
   const User = api.models.User;
 
   function create(req, res, next) {
-    let user = new User({
-      name: "foobar"
-    });
+    let user = new User(req.body);
 
     api.db.users.push(user);
     res.status(201).send();
