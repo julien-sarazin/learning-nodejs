@@ -67,15 +67,15 @@ module.exports = (api) => {
         }
 
         function update(){
-            car.renter = userId.toString();
-            user.rent = carId.toString();
-
+            car.renter = userId;
+            user.rent = carId;
 
             return car.save()
-                .then((data)=> {
-                    console.log(data);
-                    return user.save();
-                });
+                .then(saveUser);
+
+            function saveUser() {
+                return user.save();
+            }
         }
 
         function ensureOne(data) {
