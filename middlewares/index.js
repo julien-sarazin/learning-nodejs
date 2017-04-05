@@ -2,6 +2,7 @@ module.exports = (api) => {
     api.middlewares = {
         bodyParser: require('body-parser'),
         logger: require('./logger'),
-        res: require('./res')
+        res: require('./res'),
+        isAuthenticated: require('./isAuthenticated')(api)
     };
 };

@@ -17,6 +17,7 @@ module.exports = (api) => {
     router.delete('/:id', api.actions.cars.remove);
 
     router.put('/:id/rent',
+        api.middlewares.isAuthenticated,
         api.middlewares.bodyParser.json(),
         api.actions.cars.rent);
 

@@ -35,7 +35,7 @@ module.exports = (api) => {
 
     function rent(req, res, next) {
         let carId = req.params.id;
-        let userId = req.body.userId;
+        let userId = req.userId;
 
         let car = null;
         let user = null;
