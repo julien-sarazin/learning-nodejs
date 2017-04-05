@@ -7,6 +7,7 @@ module.exports = (api) => {
 
     router.post('/',
         api.middlewares.bodyParser.json(),
+        api.middlewares.ensureFields(['email', 'password']),
         api.actions.users.create);
 
     router.put('/:id',

@@ -3,6 +3,7 @@ module.exports = (api) => {
         bodyParser: require('body-parser'),
         logger: require('./logger'),
         res: require('./res'),
-        isAuthenticated: require('./isAuthenticated')(api)
+        isAuthenticated: require('./isAuthenticated')(api),
+        ensureFields: require('./ensureFields')
     };
 };
