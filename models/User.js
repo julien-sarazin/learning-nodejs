@@ -13,7 +13,8 @@ module.exports = (api) => {
         },
         password: {
             type: String,
-            required: true
+            required: true,
+            select: false
         },
         rent: {
             type: Schema.Types.ObjectId,

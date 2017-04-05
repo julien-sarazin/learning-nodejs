@@ -1,8 +1,11 @@
+const sha1 = require('sha1');
+
 module.exports = (api) => {
     const User = api.models.User;
 
     function create(req, res, next) {
         let user = new User(req.body);
+        user.password = sha1(user.password);
 
         return ensureEmailDoesNotExist()
             .then(save)
