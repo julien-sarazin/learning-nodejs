@@ -7,10 +7,10 @@ module.exports = (api) => {
             type: String,
             default: 'unknown'
         },
-        renter: {
+        renters: [{
             type: Schema.Types.ObjectId,
             ref: 'User'
-        }
+        }]
     });
 
     return mongoose.model('Car', CarSchema);

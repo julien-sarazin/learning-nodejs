@@ -67,7 +67,7 @@ module.exports = (api) => {
         }
 
         function update(){
-            car.renter = userId;
+            car.renters.push(userId);
             user.rent = carId;
 
             return car.save()
