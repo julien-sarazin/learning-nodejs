@@ -10,6 +10,10 @@ module.exports = (api) => {
         api.middlewares.bodyParser.json(),
         api.actions.cars.create);
 
+    router.put('/back',
+        api.middlewares.isAuthenticated,
+        api.actions.cars.back);
+
     router.put('/:id',
         api.middlewares.bodyParser.json(),
         api.actions.cars.update);
@@ -18,7 +22,6 @@ module.exports = (api) => {
 
     router.put('/:id/rent',
         api.middlewares.isAuthenticated,
-        api.middlewares.bodyParser.json(),
         api.actions.cars.rent);
 
     return router;

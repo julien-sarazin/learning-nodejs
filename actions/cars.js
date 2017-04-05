@@ -52,21 +52,21 @@ module.exports = (api) => {
             return Car.findById(carId)
                 .then(set);
 
-            function set(data){
+            function set(data) {
                 return car = data;
             }
         }
 
-        function findUser(){
+        function findUser() {
             return User.findById(userId)
                 .then(set);
 
-            function set(data){
+            function set(data) {
                 return user = data;
             }
         }
 
-        function update(){
+        function update() {
             car.renters.push(userId);
             user.rent = carId;
 
@@ -79,7 +79,61 @@ module.exports = (api) => {
         }
 
         function ensureOne(data) {
-            return (data)? data : Promise.reject('not.found');
+            return (data) ? data : Promise.reject('not.found');
+        }
+    }
+
+    function back(req, res, next) {
+        let car = null;
+        let user = null;
+
+        findUser()
+            .then(ensureCarRented)
+            .then(ensureCarExist)
+            .then(update)
+            .then(res.prepare(204))
+            .catch(res.error);
+
+        function findUser() {
+            return User.findById(req.userId)
+                .then(set);
+
+            function set(instance) {
+                return user = instance;
+            }
+        }
+
+        function ensureCarRented(user) {
+            return (user.rent) ? user.rent : Promise.reject({code: 403, reason: 'No car rented'})
+        }
+
+        function ensureCarExist(carId) {
+            return Car.findById(carId)
+                .then(ensureOne)
+                .then(set);
+
+            function ensureOne(car) {
+                return (car) ? car : Promise.reject({code: 404, reason: 'Rented car not found'});
+            }
+
+            function set(instance) {
+                car = instance;
+            }
+        }
+
+        function update() {
+            return updateCar()
+                .then(updateUser);
+
+            function updateCar() {
+                car.renters.remove(req.userId);
+                return car.save();
+            }
+
+            function updateUser() {
+                user.rent = undefined;
+                return user.save();
+            }
         }
     }
 
@@ -89,6 +143,7 @@ module.exports = (api) => {
         show,
         update,
         remove,
-        rent
+        rent,
+        back
     };
 };
