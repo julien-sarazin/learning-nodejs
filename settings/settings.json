@@ -5,5 +5,25 @@
     },
     "security": {
         "secret": "k5cvna$5Q"
+    },
+    "acl": {
+        "root": {
+            "email": "root@root.com",
+            "password": "root"
+        },
+        "roles": [
+            {
+                "name": "root",
+                "level": 0
+            },
+            {
+                "name": "admin",
+                "level": 1
+            },
+            {
+                "name": "lambda",
+                "level": 2
+            }
+        ]
     }
 }

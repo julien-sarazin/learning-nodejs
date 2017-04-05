@@ -4,6 +4,7 @@ module.exports = (api) => {
         logger: require('./logger'),
         res: require('./res'),
         isAuthenticated: require('./isAuthenticated')(api),
-        ensureFields: require('./ensureFields')
+        ensureFields: require('./ensureFields'),
+        acl: require('./acl')
     };
 };

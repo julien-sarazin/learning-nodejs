@@ -16,6 +16,11 @@ module.exports = (api) => {
             required: true,
             select: false
         },
+        role: {
+            type: Schema.Types.ObjectId,
+            ref: 'Role',
+            select: false
+        },
         rent: {
             type: Schema.Types.ObjectId,
             ref: 'Car'

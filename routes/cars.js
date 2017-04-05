@@ -18,7 +18,10 @@ module.exports = (api) => {
         api.middlewares.bodyParser.json(),
         api.actions.cars.update);
 
-    router.delete('/:id', api.actions.cars.remove);
+    router.delete('/:id',
+        api.middlewares.isAuthenticated,
+        api.middlewares.acl.ensure("root"),
+        api.actions.cars.remove);
 
     router.put('/:id/rent',
         api.middlewares.isAuthenticated,

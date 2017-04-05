@@ -26,6 +26,7 @@ module.exports = (api) => {
 
             function authorize() {
                 req.userId = token.userId;
+                req.role = token.role;
                 next();
             }
         });
