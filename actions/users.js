@@ -38,11 +38,14 @@ module.exports = (api) => {
     }
 
     function list(req, res, next) {
-        User.find()
-            .then(respond)
-            .catch(spread);
+        setTimeout(()=> {
+            User.find()
+                .then(respond)
+                .catch(spread);
+        }, 5000);
 
         function respond(data) {
+            api.middlewares.cache.set('users', req.originalUrl, data);
             res.send(data);
         }
 

@@ -5,6 +5,7 @@ module.exports = (api) => {
         res: require('./res'),
         isAuthenticated: require('./isAuthenticated')(api),
         ensureFields: require('./ensureFields'),
-        acl: require('./acl')
+        acl: require('./acl'),
+        cache: require('./cache')
     };
 };
