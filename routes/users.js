@@ -16,5 +16,11 @@ module.exports = (api) => {
 
     router.delete('/:id', api.actions.users.remove);
 
+    router.put('/:id/assign/:roleId',
+        api.middlewares.isAuthenticated,
+        api.middlewares.acl.ensure(1),
+        api.actions.users.assign
+    );
+
     return router;
 };

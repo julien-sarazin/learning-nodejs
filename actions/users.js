@@ -2,6 +2,7 @@ const sha1 = require('sha1');
 
 module.exports = (api) => {
     const User = api.models.User;
+    const Role = api.models.Role;
 
     function create(req, res, next) {
         let user = new User(req.body);
@@ -19,7 +20,7 @@ module.exports = (api) => {
                 .then(ensureNone);
 
             function ensureNone(data) {
-                return (data)? Promise.reject() : data;
+                return (data) ? Promise.reject() : data;
             }
         }
 
@@ -27,11 +28,11 @@ module.exports = (api) => {
             return user.save();
         }
 
-        function respond(){
+        function respond() {
             res.status(201).send();
         }
 
-        function spread(){
+        function spread() {
             res.status(500).send();
         }
     }
@@ -57,7 +58,7 @@ module.exports = (api) => {
             .catch(res.prepare(404));
 
         function ensureOne(data) {
-            return (data)? data : Promise.reject('user.not.found');
+            return (data) ? data : Promise.reject('user.not.found');
         }
     }
 
@@ -73,11 +74,80 @@ module.exports = (api) => {
             .catch(res.prepare(500));
     }
 
+
+    function assign(req, res, next) {
+        let target = null;
+        let role = null;
+
+        findTarget()
+            .then(findRole)
+            .then(validateIssuer)
+            .then(validateTarget)
+            .then(assignRole)
+            .then(res.prepare(204))
+            .then(res.error);
+
+        function findTarget() {
+            return User.findById(req.params.id)
+                .select('+role')
+                .then(ensureOne)
+                .then(set);
+
+            function ensureOne(user) {
+                return (user) ? user : Promise.reject({code: 404, reason: 'user.not.found'});
+            }
+
+            function set(user) {
+                target = user;
+            }
+        }
+
+        function findRole() {
+            return Role.findById(req.params.roleId)
+                .then(ensureOne)
+                .then(set);
+
+            function ensureOne(role) {
+                return (role) ? role : Promise.reject({code: 404, reason: 'role.not.found'})
+            }
+
+            function set(instance) {
+                return role = instance;
+            }
+        }
+
+        function validateIssuer(role) {
+            return (req.role.level <= role.level) ? role : Promise.reject({code: 403, reason: 'role.too.high'})
+        }
+
+        function validateTarget() {
+            return findTargetRole()
+                .then(ensureLowerThanIssuer);
+
+            function findTargetRole() {
+                return Role.findById(target.role);
+            }
+
+            function ensureLowerThanIssuer(role) {
+                return (!role || role.level >= req.userRole)? true : Promise.reject({code: 403, reason: 'target.level.too.high'})
+            }
+
+        }
+
+        function assignRole() {
+            return User.findByIdAndUpdate(req.params.id, {
+                role: role._id.toString()
+            });
+        }
+    }
+
+
     return {
         create,
         list,
         show,
         update,
-        remove
+        remove,
+        assign
     };
 };
