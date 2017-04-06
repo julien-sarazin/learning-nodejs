@@ -27,8 +27,9 @@ Votre mission est de concevoir la partie serveur, une API REST en NodeJS permett
 - Lors de la location d'un véhicule il est nécéssaire de préciser le point de retrait, le point de retour du véhicule (parmi les points disponibles fournie par la plateforme), ainsi que la date.
 - Il est impossible de louer un véhicule qui n'est pas disponible dans un point de retrait,
 - Il est impossible de rendre un véhicule dans un point de dépôt qui ne dispose pas de la capacité suffisante pour stocker le véhicule,
-- Seul un administrateur peut créer un nouveau véhicule,
-- Seul un administrateur peut supprimer un véhicule, dans ce cas, si une location était en cours, celle-ci devra également être supprimée,
+- Seul un administrateur peut créer un nouveau modele de véhicule,
+- Seul un administrateur peut ajouter un véhicule pour un modèle donné,
+- Seul un administrateur peut supprimer un véhicule, dans ce cas, si une location était en cours avec celui-ci, la location devra également être supprimée,
 - Seul un utilisateur peut éditer ses propres informations (nom, prénom, adresse email)
 - Seul un administrateur peut supprimer un point de depot/retrait, si et seulement si, aucune location n'a pour destination ce point de dépôt. Dans ce cas, les véhicules stockés dans ce dépôt devront eux-aussi être supprimés.
 - Un véhicule peut-être loué par plusieurs utilisateurs,
