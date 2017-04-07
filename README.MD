@@ -34,7 +34,7 @@ Votre mission est de concevoir la partie serveur, une API REST en NodeJS permett
 - Seul un utilisateur peut éditer ses propres informations (nom, prénom, adresse email)
 - Seul un administrateur peut supprimer un point de depot/retrait, si et seulement si, aucune location n'a pour destination ce point de dépôt. Dans ce cas, les véhicules stockés dans ce dépôt devront eux-aussi être supprimés.
 - Un véhicule peut-être loué par plusieurs utilisateurs,
-
+- Une location à une date donnée ne peut être faite pour un utilisateur qui a déja une location de prévue à cette date.
 
 ### 3 - Règles Techniques
 - L'ensemble des échanges sera fera via le `Content-Type: application/json`.
