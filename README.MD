@@ -8,9 +8,10 @@ Votre mission est de concevoir la partie serveur, une API REST en NodeJS permett
 
 ### 1 - Règles d'accès
 - Les services suivant seront publiques : 
-    - Permettre de consulter la liste de modèles de véhicules disponibles, 
     - Permettre de consulter la liste des points de retrait/dépôt du Réseau,
-    - Permette de consulter la liste des véhicules disponibles pout un point de retrait donné,
+    - Permettre de consulter la liste de modèles de véhicules disponibles 
+        - à une date donnée, 
+        - dans un point de retrait donné,
     - Permettre de s'inscrire,
     - Permettre de s'authentifier,
 
