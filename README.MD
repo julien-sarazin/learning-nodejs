@@ -32,7 +32,7 @@ Votre mission est de concevoir la partie serveur, une API REST en NodeJS permett
 - Seul un administrateur peut ajouter un véhicule pour un modèle donné,
 - Seul un administrateur peut supprimer un véhicule, dans ce cas, si une location était en cours avec celui-ci, la location devra également être supprimée,
 - Seul un utilisateur peut éditer ses propres informations (nom, prénom, adresse email)
-- Seul un administrateur peut supprimer un point de depot/retrait, si et seulement si, aucune location n'a pour destination ce point de dépôt. Dans ce cas, les véhicules stockés dans ce dépôt devront eux-aussi être supprimés.
+- Seul un administrateur peut supprimer un point de depot/retrait, si et seulement si, aucune location n'a pour point de retrait cette plateforme a une date postérieur à la date de supression et qu'aucune location n'a pour destination ce point de dépôt. Dans ce cas, les véhicules stockés dans ce dépôt devront eux-aussi être supprimés.
 - Un véhicule peut-être loué par plusieurs utilisateurs,
 - Une location à une date donnée ne peut être faite pour un utilisateur qui a déja une location de prévue à cette date.
 
@@ -42,7 +42,7 @@ Votre mission est de concevoir la partie serveur, une API REST en NodeJS permett
 - Votre projet doit être fonctionnel "from scratch" ce qui signifie que lors de la soutenance, il peut-être demandé d'écraser l'ensemble de vos données, et de démarrer sur un repertoire vide où l'on clonera votre projet depuis un repository distant. Pensez à bien initialiser vos script de démarrage et à commit/push votre code sur un gestionnaire de versions. 
 
 ### 4 - Notation 
-Le projet sera noté sur 20 et la noté ramenée sur 20.
+Le projet sera noté sur 40 et la noté ramenée sur 20.
 
  - Une note sur 20 concernant la qualité de code et le respect du cahier des charges. (Note d'équipe)
  - Une note sur 20 concernant la qualité de la prestation orale de chacun, de la compréhension générale et des bonnes réponses *aux possibles* questions qui seront posées lors de la soutenance. (Note individuelle)
