@@ -15,8 +15,8 @@ Votre mission est de concevoir la partie serveur, une API REST en NodeJS permett
     - Permettre de s'authentifier,
 
 - Les services nécessitant d'être authentifié seront :
-    - CRUD d'un point de retrait/depot
-    - CRUD d'un véhicule
+    - Creation/modification/supression d'un point de retrait/depot
+    - Creation/modification/supression d'un véhicule
     - Location d'un véhicule
     - Retour d'un véhicule
     - Editer/supprimer un utilisateur
@@ -24,8 +24,9 @@ Votre mission est de concevoir la partie serveur, une API REST en NodeJS permett
 ### 2 - Règles fonctionnelles
 - un véhicule est lié à un modele de véhicule décrivant son nom, son année et le nombre de place assises,
 - Un point de depot/retrait dispose d'un nombre maximum d'emplacement, d'une longitude et d'une latitude,
-- Lors de la location d'un véhicule il est nécéssaire de préciser le point de retrait, le point de retour du véhicule (parmi les points disponibles fournie par la plateforme), ainsi que la date.
-- Il est impossible de louer un véhicule qui n'est pas disponible dans un point de retrait,
+- Lors de la location d'un véhicule il est nécéssaire de préciser le point de retrait, le point de retour du véhicule (parmi les points disponibles fournie par la plateforme), ainsi que la date de retrait et la date de dépot.
+- Lors de la location d'un véhicule, le locataire doit également préciser combien de place il désire réserver. Si cela n'atteint pas le nombre maximum de place assises, il sera possible pour un autre utilisateur de louer également cette voiture avec le nombre de place restante, si et seulement si, la date de retrait n'est pas dépassée. On assumera alors que le point/date de retrait et que le point/date de dépot sera identique au premier locataire, et ce, pour tout les locataires suivant qui voudrait partager cette voiture sur un même itinéraire.
+- Il est impossible de louer un véhicule qui n'est pas disponible dans un point de retrait à la date renseignée,
 - Il est impossible de rendre un véhicule dans un point de dépôt qui ne dispose pas de la capacité suffisante pour stocker le véhicule,
 - Seul un administrateur peut créer un nouveau modele de véhicule,
 - Seul un administrateur peut ajouter un véhicule pour un modèle donné,
@@ -33,7 +34,7 @@ Votre mission est de concevoir la partie serveur, une API REST en NodeJS permett
 - Seul un utilisateur peut éditer ses propres informations (nom, prénom, adresse email)
 - Seul un administrateur peut supprimer un point de depot/retrait, si et seulement si, aucune location n'a pour destination ce point de dépôt. Dans ce cas, les véhicules stockés dans ce dépôt devront eux-aussi être supprimés.
 - Un véhicule peut-être loué par plusieurs utilisateurs,
-- Lors de la location d'un véhicule, le locataire doit préciser combien de place il désire réserver. Si cela n'atteint pas le nombre maximum de place assises, il sera possible pour un autre utilisateur de louer également cette voiture, si et seulement si, sa destination est identique avec celle du premier locataire et que le nom 
+
 
 
 
