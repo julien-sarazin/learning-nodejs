@@ -36,8 +36,6 @@ Votre mission est de concevoir la partie serveur, une API REST en NodeJS permett
 - Un véhicule peut-être loué par plusieurs utilisateurs,
 
 
-
-
 ### 3 - Règles Techniques
 - L'ensemble des échanges sera fera via le `Content-Type: application/json`.
 - L'identification d'un utilisateur se fera par le biais d'un échange de Token de le header `Authorization`.
@@ -49,6 +47,8 @@ Le projet sera noté sur 20 et la noté ramenée sur 20.
  - Une note sur 20 concernant la qualité de code et le respect du cahier des charges. (Note d'équipe)
  - Une note sur 20 concernant la qualité de la prestation orale de chacun, de la compréhension générale et des bonnes réponses *aux possibles* questions qui seront posées lors de la soutenance. (Note individuelle)
 
+### 5 - Ordre de passage : 
 
+- Groupes : 6, 1, 5, 2, 4, 3
 
 
