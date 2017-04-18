@@ -1,41 +1,6 @@
 {
-<<<<<<< Updated upstream
-    "port": 3000,
-    "db": {
-        "url": "mongodb://localhost:27017"
-    },
-    "security": {
-        "secret": "k5cvna$5Q"
-    },
-    "acl": {
-        "root": {
-            "email": "root@root.com",
-            "password": "root"
-        },
-        "roles": [
-            {
-                "name": "root",
-                "level": 0
-            },
-            {
-                "name": "admin",
-                "level": 1
-            },
-            {
-                "name": "manager",
-                "level": 2
-            },
-            {
-                "name": "lambda",
-                "level": 3
-            }
-        ]
-    }
-}
-=======
     "db": {
         "url": "mongodb://localhost:27017/bot-db"
     },
     "port": 3000
 }
->>>>>>> Stashed changes
