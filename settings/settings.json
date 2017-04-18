@@ -1,4 +1,5 @@
 {
+<<<<<<< Updated upstream
     "port": 3000,
     "db": {
         "url": "mongodb://localhost:27017"
@@ -31,3 +32,10 @@
         ]
     }
 }
+=======
+    "db": {
+        "url": "mongodb://localhost:27017/bot-db"
+    },
+    "port": 3000
+}
+>>>>>>> Stashed changes

@@ -1,4 +1,5 @@
 {
+<<<<<<< Updated upstream
     "name": "learning-nodejs",
     "version": "1.0.0",
     "description": "",
@@ -25,4 +26,29 @@
         "mongoose": "^4.9.3",
         "sha1": "^1.1.1"
     }
+=======
+  "name": "learning-nodejs",
+  "version": "1.0.0",
+  "description": "### 1- Node Package Manager (NPM) 1.1 La commande npm",
+  "main": "playground.js",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "mongoose": "^4.9.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/julien-sarazin/learning-nodejs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/julien-sarazin/learning-nodejs/issues"
+  },
+  "homepage": "https://github.com/julien-sarazin/learning-nodejs#readme"
+>>>>>>> Stashed changes
 }

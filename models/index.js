@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+<<<<<<< Updated upstream
 const Promise = require('bluebird');
 mongoose.Promise = Promise;
 
@@ -10,3 +11,12 @@ module.exports = (api) => {
         Role: require('./Role')(api)
     };
 };
+=======
+
+module.exports = (server) => {
+    server.mongoose = mongoose.connect(server.settings.db.url);
+    server.models = {
+        Bot: require('./Bot')
+    };
+};
+>>>>>>> Stashed changes

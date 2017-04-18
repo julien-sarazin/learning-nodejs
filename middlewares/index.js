@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 module.exports = (api) => {
     api.middlewares = {
         bodyParser: require('body-parser'),
@@ -9,3 +10,10 @@ module.exports = (api) => {
         cache: require('./cache')
     };
 };
+=======
+module.exports = (server) => {
+    server.middlewares = {
+        bodyParser: require('body-parser')
+    };
+};
+>>>>>>> Stashed changes
