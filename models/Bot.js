@@ -4,18 +4,14 @@ const timestamps = require('mongoose-timestamps');
 const BotSchema = mongoose.Schema({
     name: {
         type: String,
-        required: false
+        required: true
     },
     model: {
         type: String,
         required: true
     },
-    address: {
+    email: {
         type: String,
-        required: false
-    },
-    age: {
-        type: Number,
         required: true
     }
 });
