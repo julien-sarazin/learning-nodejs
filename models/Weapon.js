@@ -14,6 +14,10 @@ const WeaponSchema = Schema({
     weight: {
         type: Number,
         required: true
+    },
+    bot: {
+        type: Schema.Types.ObjectId,
+        ref: 'Bot'
     }
 });
 

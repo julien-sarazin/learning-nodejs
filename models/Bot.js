@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 const timestamps = require('mongoose-timestamps');
+const Schema = mongoose.Schema;
 
-const BotSchema = mongoose.Schema({
+const BotSchema = Schema({
     name: {
         type: String,
         required: true
@@ -13,6 +14,14 @@ const BotSchema = mongoose.Schema({
     health: {
         type: Number,
         default: 100
+    },
+    weapons: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Weapon'
+    }],
+    slots: {
+        type: Number,
+        default: 2
     }
 });
 

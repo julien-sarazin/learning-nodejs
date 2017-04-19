@@ -1,5 +1,4 @@
 module.exports = (server) => {
-    const botsRoutes = require('./bots')(server);
-
-    server.use('/bots', botsRoutes);
+    server.use('/bots', require('./bots')(server));
+    server.use('/weapons', require('./weapons')(server));
 };

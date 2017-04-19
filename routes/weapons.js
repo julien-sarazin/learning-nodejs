@@ -1,34 +1,28 @@
 const router = require('express').Router();
 
-
-
 module.exports = (server) => {
 
     router.post('/',
         server.middlewares.bodyParser.json(),
-        server.middlewares.ensureBodyFields(server.models.Bot.schema),
-        server.actions.bots.create
+        server.middlewares.ensureBodyFields(server.models.Weapon.schema),
+        server.actions.weapons.create
     );
 
     router.get('/',
-        server.actions.bots.list
+        server.actions.weapons.list
     );
 
     router.get('/:id',
-        server.actions.bots.show
+        server.actions.weapons.show
     );
 
     router.put('/:id',
         server.middlewares.bodyParser.json(),
-        server.actions.bots.update
+        server.actions.weapons.update
     );
 
     router.delete('/:id',
-        server.actions.bots.remove
-    );
-
-    router.post('/:id/assign/:weaponId',
-        server.actions.bots.assign
+        server.actions.weapons.remove
     );
 
     return router;

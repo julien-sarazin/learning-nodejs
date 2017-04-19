@@ -4,7 +4,6 @@ module.exports = (server) => {
         update: require('./update')(server),
         list: require('./list')(server),
         show: require('./show')(server),
-        remove: require('./remove')(server),
-        assign: require('./assign')(server)
+        remove: require('./remove')(server)
     };
 };
