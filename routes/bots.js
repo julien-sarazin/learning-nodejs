@@ -31,5 +31,9 @@ module.exports = (server) => {
         server.actions.bots.assign
     );
 
+    router.post('/:id/drop/:weaponId',
+        server.actions.bots.drop
+    );
+
     return router;
 };
