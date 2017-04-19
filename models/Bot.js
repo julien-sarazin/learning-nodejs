@@ -1,14 +1,25 @@
 const mongoose = require('mongoose');
+const timestamps = require('mongoose-timestamps');
 
-const Bot = mongoose.model('Bot', {
+const BotSchema = mongoose.Schema({
     name: {
         type: String,
-        required: true
+        required: false
     },
     model: {
         type: String,
         required: true
+    },
+    address: {
+        type: String,
+        required: false
+    },
+    age: {
+        type: Number,
+        required: true
     }
 });
 
-module.exports = Bot;
+BotSchema.plugin(timestamps);
+
+module.exports = mongoose.model('Bot', BotSchema);

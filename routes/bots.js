@@ -6,8 +6,7 @@ module.exports = (server) => {
 
     router.post('/',
         server.middlewares.bodyParser.json(),
-        server.middlewares.ensureBotsModel,
-        server.middlewares.ensureBodyFields(['name', 'model']),
+        server.middlewares.ensureBodyFields(server.models.Bot.schema),
         server.actions.bots.create
     );
 
@@ -20,6 +19,7 @@ module.exports = (server) => {
     );
 
     router.put('/:id',
+        server.middlewares.bodyParser.json(),
         server.actions.bots.update
     );
 
