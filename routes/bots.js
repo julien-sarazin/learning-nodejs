@@ -1,8 +1,13 @@
 const router = require('express').Router();
 
+
+
 module.exports = (server) => {
+
     router.post('/',
         server.middlewares.bodyParser.json(),
+        server.middlewares.ensureBotsModel,
+        server.middlewares.ensureBodyFields(['name', 'model']),
         server.actions.bots.create
     );
 
