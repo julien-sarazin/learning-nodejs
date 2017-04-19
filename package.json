@@ -4,11 +4,12 @@
   "description": "### 1- Node Package Manager (NPM) 1.1 La commande npm",
   "main": "playground.js",
   "dependencies": {
+    "bluebird": "latest",
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
     "mongoose": "^4.9.5",
     "mongoose-timestamps": "0.0.1",
-      "bluebird": "latest"
+    "sha1": "^1.1.1"
   },
   "devDependencies": {},
   "scripts": {
