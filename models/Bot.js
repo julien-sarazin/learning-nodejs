@@ -10,9 +10,9 @@ const BotSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    email: {
-        type: String,
-        required: true
+    health: {
+        type: Number,
+        default: 100
     }
 });
 
