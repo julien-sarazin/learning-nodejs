@@ -6,6 +6,7 @@ module.exports = (server) => {
     return (req, res, next) => {
 
         Bot.findById(req.params.id)
+            .then(ensureOne)
             .then(ensureLoggedUserIsOwner)
             .then(updateWeapons)
             .then(updateUser)
@@ -13,10 +14,13 @@ module.exports = (server) => {
             .then(respond)
             .catch(error);
 
+        function ensureOne(data) {
+            return (data)? data : Promise.reject({code: 404})
+        }
 
         function ensureLoggedUserIsOwner(bot) {
             if (bot.user != req.userId)
-                return Promise.reject(403);
+                return Promise.reject({code: 403});
 
             return bot;
         }
@@ -52,17 +56,14 @@ module.exports = (server) => {
         }
 
         function respond(data) {
-            if (data)
-                return res.send(data);
-
             return res.status(204).send()
         }
 
-        function error(code) {
-            if (!code)
-                return res.status(500).send();
+        function error(reason) {
+            if (!reason.code)
+                return res.status(500).send(reason);
 
-            return res.status(code).send();
+            return res.status(reason.code).send(reason.message);
         }
     }
 };

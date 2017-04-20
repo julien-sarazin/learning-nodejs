@@ -25,6 +25,7 @@ module.exports = (server) => {
     );
 
     router.delete('/:id',
+        server.middlewares.ensureAuthenticated,
         server.actions.bots.remove
     );
 
