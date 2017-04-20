@@ -14,7 +14,7 @@ module.exports = (server) => {
                 return res.status(403).send();
 
             req.body.password = sha1(req.body.password);
-            
+
             new User(req.body)
                 .save((err, instance) => {
                     if (err)
