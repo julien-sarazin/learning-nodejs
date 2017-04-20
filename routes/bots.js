@@ -7,6 +7,7 @@ module.exports = (server) => {
     router.post('/',
         server.middlewares.bodyParser.json(),
         server.middlewares.ensureBodyFields(server.models.Bot.schema),
+        server.middlewares.ensureAuthenticated,
         server.actions.bots.create
     );
 
