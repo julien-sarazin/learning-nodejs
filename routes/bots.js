@@ -20,6 +20,7 @@ module.exports = (server) => {
     );
 
     router.put('/:id',
+        server.middlewares.ensureAuthenticated,
         server.middlewares.bodyParser.json(),
         server.actions.bots.update
     );
