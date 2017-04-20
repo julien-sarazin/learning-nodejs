@@ -16,8 +16,10 @@ module.exports = (server) => {
         server.actions.users.show
     );
 
-    router.put('/:id',
+    router.put('/',
         server.middlewares.bodyParser.json(),
+        server.middlewares.ensureAuthenticated,
+        server.middlewares.clean(['password', '_id']),
         server.actions.users.update
     );
 

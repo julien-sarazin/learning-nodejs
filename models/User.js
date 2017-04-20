@@ -3,6 +3,10 @@ const timestamps = require('mongoose-timestamps');
 const Schema = mongoose.Schema;
 
 const UserSchema = Schema({
+    name: {
+        type: String,
+        default: 'Lambda'
+    },
     email: {
         type: String,
         required: true,

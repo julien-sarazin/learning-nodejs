@@ -20,7 +20,7 @@ module.exports = (server) => {
         }
 
         function update(bot) {
-            return Bot.update({_id: bot._id}, req.body)
+             return Bot.update({_id: bot._id}, req.body)
         }
 
         function respond() {
