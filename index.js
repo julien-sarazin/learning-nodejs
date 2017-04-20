@@ -10,3 +10,6 @@ require('./static')(server);                console.log('loading client...');
 
 console.log(`Server listening on port ${server.settings.port}`);
 server.listen(server.settings.port);
+
+
+module.exports = server;

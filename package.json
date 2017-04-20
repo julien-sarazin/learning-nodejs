@@ -8,14 +8,16 @@
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
     "jsonwebtoken": "^7.3.0",
+    "mocha": "^3.2.0",
     "mongoose": "^4.9.5",
     "mongoose-timestamps": "0.0.1",
-    "sha1": "^1.1.1"
+    "sha1": "^1.1.1",
+    "supertest": "^3.0.0"
   },
   "devDependencies": {},
-  "scripts": {	
-	"start": "node .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "scripts": {
+    "start": "node .",
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
