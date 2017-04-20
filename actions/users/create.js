@@ -4,23 +4,31 @@ module.exports = (server) => {
     const User = server.models.User;
 
     return (req, res) => {
-        User.findOne({
-            email: req.body.email
-        }, (err, user) => {
-            if (err)
-                return res.status(500).send(err);
 
-            if (user)
-                return res.status(403).send();
+            findUser()
+            .then(ensureNone)
+            .then(encryptPassword)
+            .then(createUser)
+            .then(res.created)
+            .catch(res.error);
 
-            req.body.password = sha1(req.body.password);
-
-            new User(req.body)
-                .save((err, instance) => {
-                    if (err)
-                        return res.status(500).send(err);
-                    res.status(201).send();
+            function findUser() {
+                return User.findOne({
+                    email: req.body.email
                 });
-        });
+            }
+
+            function ensureNone(user) {
+                return (user)? Promise.reject({code: 403, reason: 'email.already.exists'}) : user;
+            }
+
+            function encryptPassword() {
+                req.body.password = sha1(req.body.password)
+            }
+
+            function createUser() {
+                return new User(req.body)
+                    .save();
+            }
     };
 };

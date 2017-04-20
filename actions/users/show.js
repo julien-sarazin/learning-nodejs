@@ -10,23 +10,11 @@ module.exports = (server) => {
                 }
             })
             .then(ensureOne)
-            .then(respond)
-            .catch(error);
+            .then(res.send)
+            .catch(res.error);
 
         function ensureOne(data) {
             return (data) ? data : Promise.reject({code: 404});
-        }
-
-        function respond(data) {
-            return res.send(data);
-        }
-
-        function error(error) {
-            if (error.code) {
-                return res.status(error.code).send(error.reason);
-            }
-
-            return res.status(500).send(error)
         }
     }
 };
