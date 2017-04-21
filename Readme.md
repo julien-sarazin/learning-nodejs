@@ -17,10 +17,10 @@ Votre mission est de concevoir la partie serveur, une API REST en NodeJS permett
     - Permettre de s'authentifier,
 
 - Les services nécessitant d'être authentifié seront :
-    - Création/modification/supression/Détail d'un Bot,
-    - Création/modification/supression/Détail d'une Weapon,
-    - Modification/supression/Détail d'un User,
-    - Création/modification/supression/Détail d'un Challenge,
+    - Création/modification/supression/Détail d'un Bot (**Admin** only)
+    - Création/modification/supression/Détail d'une Weapon, (**Admin** only)
+    - Modification/supression/Détail d'un User, (soit-même)
+    - Création/modification/Détail d'un Challenge,
     - Accepter/Refuser un Challenge,
     - Assigner un Bot à un Challenge,
     - Créditer un User
