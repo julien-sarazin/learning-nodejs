@@ -13,7 +13,7 @@ const BotSchema = Schema({
     },
     health: {
         type: Number,
-        default: 100
+        default: 1000
     },
     weapons: [{
         type: Schema.Types.ObjectId,
@@ -23,7 +23,7 @@ const BotSchema = Schema({
         type: Number,
         default: 2
     },
-    user: {
+    owner: {
         type: Schema.Types.ObjectId,
         ref: 'User'
     }
