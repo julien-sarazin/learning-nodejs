@@ -9,17 +9,17 @@ Votre mission est de concevoir la partie serveur, une API REST en NodeJS permett
 ### 1 - Règles d'accès
 - Les services suivant seront publiques : 
     - Permettre de consulter la liste des Users,
-    - Permettre de consulter la liste des Bots **disponibles**, (qui n'ont pas de User)
-    - Permettre de consulter la liste des Weapons **disponibles**, (qui n'ont pas été Achetés)
+    - Permettre de consulter la liste/détail des Bots **disponibles**, (qui n'ont pas de User)
+    - Permettre de consulter la liste/détail des Weapons **disponibles**, (qui n'ont pas été Achetés)
     - Permettre de consulter la liste des Challenges,
     - Permettre de consulter le Palmares d'un User,
     - Permettre de s'inscrire,
     - Permettre de s'authentifier,
 
 - Les services nécessitant d'être authentifié seront :
-    - Création/modification/supression/Détail d'un Bot (**Admin** only)
-    - Création/modification/supression/Détail d'une Weapon, (**Admin** only)
-    - Modification/supression/Détail d'un User, (soit-même)
+    - Création/modification/supression/Détail d'un Bot 
+    - Création/modification/supression/Détail d'une Weapon,
+    - Modification/supression/détail d'un User,
     - Création/modification/Détail d'un Challenge,
     - Accepter/Refuser un Challenge,
     - Assigner un Bot à un Challenge,
@@ -30,8 +30,13 @@ Votre mission est de concevoir la partie serveur, une API REST en NodeJS permett
     
     
 ### 2 - Règles fonctionnelles
-   - Il existe deux types de profile sur la plateforme, des **lambdas** et des **admins**,
+   - Il existe deux types de profiles sur la plateforme, des **lambdas** et des **admins**,
    - Seul les **admins** peuvent créer des **Bots** et des **Weapons**,
+   - La consultation du détail d'un Bot est publique tant que celui-ci est disponible,
+   - La consultation du détail d'une Weapon est publique tant que celle-ci est disponible,
+   - La modification des propriétés d'un Bot ou d'une Weapon ne peut se faire que lors de l'assignation/Drop, ou par un Admin,
+   - La modification/supression d'un user ne peut se faire que par lui-même,
+   - La consultation du détail d'un user peut se faire par n'importe quel utilisateur authentifié,
    
    - Une Weapon est composé :
      - d'un `nom: String`, 
