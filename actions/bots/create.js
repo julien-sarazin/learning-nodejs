@@ -4,7 +4,7 @@ module.exports = (server) => {
 
     return (req, res) => {
         let bot = new Bot(req.body);
-        bot.user = req.userId;
+        bot.owner = req.userId;
 
         bot.save((err, instance) => {
             if (err)
