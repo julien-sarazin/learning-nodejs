@@ -48,7 +48,7 @@ Votre mission est de concevoir la partie serveur, une API REST en NodeJS permett
      - les deux Users n'ont pas déjà fait de Challenge aujourd'hui,
        - implique qu'aucun des deux Users ne soient référencés en tant que source dans un challenge avec un `Pending`, `Selecting` ou `Done`
        - implique qu'aucun des deux Users ne soient référencés en tant que target dans un challenge avec un status: `Selecting` ou `Done`
-     - que ces Bots sont équipés d'aux moins une Weapon,
+     - qu'au moins un de ces Bots soit équipé d'aux moins une Weapon,
      
      
    - Un Challenge est composé :
@@ -66,6 +66,8 @@ Votre mission est de concevoir la partie serveur, une API REST en NodeJS permett
         - si il refuse, le status passe en `Canceled`
         
    - Lorsqu'un Challenge est en status `Selecting` les Users peuvent choisir les Bots qu'il feront combattre
+     - implique que le Bot sélectionné dispose d'une Weapon
+   
    - Une fois les deux Bots assigné au Challenge, le status passe en `Done`, le winner est automatiquement nommé via le meilleur rapport `(Dammage * Vitesse d'un Bot) / (Heath de son adversaire)` et l'attribut winner est automatiquement assigné.
    - Le Palmares d'un User correspond à lister tous les challenges dont il a été le Winner.
    - Seul un Admin peut supprimer une Weapon, si elle a été acheter par un User et assigné à un Bot, il faudra mettre à jours le bot et re-créditer le user.
