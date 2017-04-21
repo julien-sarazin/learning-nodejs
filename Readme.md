@@ -46,6 +46,8 @@ Votre mission est de concevoir la partie serveur, une API REST en NodeJS permett
    - Un User peut Challenge un autre User si et seulement si : 
      - les deux Users disposent de Bot,
      - les deux Users n'ont pas déjà fait de Challenge aujourd'hui,
+       - implique qu'aucun des deux Users ne soient référencés en tant que source dans un challenge avec un `Pending`, `Selecting` ou `Done`
+       - implique qu'aucun des deux Users ne soient référencés en tant que target dans un challenge avec un status: `Selecting` ou `Done`
      - que ces Bots sont équipés d'aux moins une Weapon,
      
      
