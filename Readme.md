@@ -73,7 +73,7 @@ Votre mission est de concevoir la partie serveur, une API REST en NodeJS permett
    - Lorsqu'un Challenge est en status `Selecting` les Users peuvent choisir les Bots qu'il feront combattre
      - implique que le Bot sélectionné dispose d'une Weapon
    
-   - Une fois les deux Bots assigné au Challenge, le status passe en `Done`, le winner est automatiquement nommé via le meilleur rapport `(Dammage * Vitesse d'un Bot) / (Heath de son adversaire)` et l'attribut winner est automatiquement assigné.
+   - Une fois les deux Bots assigné au Challenge, le status passe en `Done`, le winner est automatiquement nommé via le meilleur rapport du calcul `(Σ damage)/ (Heath de son adversaire)` et l'attribut winner est automatiquement assigné.
    - Le Palmares d'un User correspond à lister tous les challenges dont il a été le Winner.
    - Seul un Admin peut supprimer une Weapon, si elle a été acheter par un User et assigné à un Bot, il faudra mettre à jours le bot et re-créditer le user.
 
