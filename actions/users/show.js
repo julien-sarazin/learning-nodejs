@@ -2,14 +2,19 @@ module.exports = (server) => {
     const User = server.models.User;
 
     return (req, res, next) => {
-        User.findById(req.params.id, (err, instance) => {
-            if (err)
-                return res.status(500).send(err);
+        User.findById(req.params.id)
+            .populate({
+                path: 'bots',
+                populate: {
+                    path: 'weapons'
+                }
+            })
+            .then(ensureOne)
+            .then(res.send)
+            .catch(res.error);
 
-            if (!instance)
-                return res.status(404).send();
-
-            res.send(instance);
-        });
+        function ensureOne(data) {
+            return (data) ? data : Promise.reject({code: 404});
+        }
     }
 };

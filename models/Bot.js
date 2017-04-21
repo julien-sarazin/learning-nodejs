@@ -22,6 +22,10 @@ const BotSchema = Schema({
     slots: {
         type: Number,
         default: 2
+    },
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
     }
 });
 
