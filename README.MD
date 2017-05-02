@@ -84,3 +84,7 @@ Le projet sera noté sur 40 et la noté ramenée sur 20.
 Une implémentation d'un client graphique illustrant la consommation de l'API sera appréciée et ne pourra influer que positivement sur la notation globale du projet. 
  **ATTENTION** : L'implémentation d'un client quel qu'il soit ne doit pas être l'unique tache effectuée par un des membres du groupe. Chaque membre devra participer **significativement** au développement de la partie serveur.
 
+
+### 7 - Ordre de passage
+ Ordre :  : 1, 2, 3, 4, 5, 6, 7
+ Durée par soutenance: 15min.
